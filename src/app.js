@@ -24,6 +24,7 @@ const server = http.createServer((req, res) => {
           res.writeHead(200, { 'Content-Type': 'text/plain' });
           res.end(`Data "${inputData}" has been written to file.`);
         } else {
+          
           // Error: Return a response to the client
           res.writeHead(500, { 'Content-Type': 'text/plain' });
           res.end('Error occurred while writing to file.');
