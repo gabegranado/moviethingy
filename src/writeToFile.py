@@ -6,5 +6,5 @@ if __name__ == '__main__':
     parssed = json.loads(data)
     # Access other form fields in the same way
     f = open('demofile2.txt', 'w')
-    f.write(parssed['email'])
+    f.write(parssed['email'] + " " + parssed['psw'] + " " + parssed["rpsw"])
     f.close
