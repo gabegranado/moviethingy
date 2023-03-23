@@ -6,23 +6,21 @@ const port = 8080;
 const server = http.createServer((req, res) => {
   if (req.method === 'POST' && req.url === '/writeData') {
     // Handle the POST request to /writeData
-    let data = '';
-    req.on('data', chunk => {
-      data += chunk.toString();
+    let jsonData = '';
+    req.on('data', (chunk) => {
+      jsonData += chunk.toString();
     });
+
     req.on('end', () => {
-      // Parse the form data
-      const formData = new URLSearchParams(data);
-      const inputData = formData.get('inputData');
-      const email = formData.get('email');
+      // const data = JSON.parse(jsonData);
       
       // Call the Python script to write the data to a file
-      const pyProcess = spawn('python', ['writeToFile.py', inputData]);
+      const pyProcess = spawn('python', ['writeToFile.py', jsonData]);
       pyProcess.on('close', (code) => {
         if (code === 0) {
           // Success: Return a response to the client
           res.writeHead(200, { 'Content-Type': 'text/plain' });
-          res.end(`Data "${inputData}" has been written to file.`);
+          res.end(`Data "${jsonData}" has been written to file.`);
         } else {
           
           // Error: Return a response to the client

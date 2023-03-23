@@ -38,17 +38,21 @@
       formData.append("email", email)
       formData.append("psw", psw)
       formData.append("rpsw", rpsw)
+      var test = {};
+      test['email'] = email;
 
       const xhr = new XMLHttpRequest();
       xhr.open('POST', '/writeData', true);
-      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
       xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
           alert(xhr.responseText);
         }
       };
       
-      xhr.send(`inputData=${email}`);
+      // xhr.send(`inputData=${test['email']}`);
+      xhr.send(JSON.stringify({ "email": email, "psw": psw, "rpsw": rpsw }));
+      // xhr.send(test)
     }
   </script>
 </body>
