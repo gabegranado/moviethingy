@@ -46,8 +46,12 @@
       
       // xhr.send(`inputData=${test['email']}`);
       xhr.send(JSON.stringify({ "email": email, "psw": psw, "rpsw": rpsw }));
+      window.location.replace("/signup");
+      // window.location.href = "/signup.html";
       // xhr.send(test)
     }
+    // function redirectFunc() {
+    //   }
   </script>
 </body>
 </html>

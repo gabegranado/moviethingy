@@ -29,8 +29,19 @@ const server = http.createServer((req, res) => {
         }
       });
     });
-  } else {
+  } else if (req.url === '/signup') {
     // Handle all other requests
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    fs.readFile('signup.html', (error, data) => {
+      if (error) {
+        res.writeHead(404);
+        res.write('Error: File Not Found');
+      } else {
+        res.write(data);
+      }
+      res.end();
+    });
+  } else {
     res.writeHead(200, { 'Content-Type': 'text/html' });
     fs.readFile('index.html', (error, data) => {
       if (error) {
