@@ -31,15 +31,9 @@
 
   <script>
     function sendSignUpData() {
-      const formData = new FormData();
       const email = document.getElementById('email').value;
       const psw = document.getElementById('psw').value;
       const rpsw = document.getElementById('rpsw').value;
-      formData.append("email", email)
-      formData.append("psw", psw)
-      formData.append("rpsw", rpsw)
-      var test = {};
-      test['email'] = email;
 
       const xhr = new XMLHttpRequest();
       xhr.open('POST', '/writeData', true);

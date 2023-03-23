@@ -19,8 +19,8 @@ const server = http.createServer((req, res) => {
       pyProcess.on('close', (code) => {
         if (code === 0) {
           // Success: Return a response to the client
-          res.writeHead(200, { 'Content-Type': 'text/plain' });
-          res.end(`Data "${jsonData}" has been written to file.`);
+          // res.writeHead(200, { 'Content-Type': 'text/plain' });
+          // res.end(`Data "${jsonData}" has been written to file.`);
         } else {
           
           // Error: Return a response to the client
