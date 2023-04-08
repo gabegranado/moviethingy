@@ -8,7 +8,7 @@ import testRoutes from './routes/testApi.js';
 
 const app = express();
 import * as CONFIG from "../../config.json" assert { type: "json" };
-var dbPsw = CONFIG.dbPassword;
+var dbPsw = CONFIG.default.dbPassword;
 import sprintf from 'sprintf';
 
 app.use(bodyParser.json({ limit: '30mb', extended: true }))
@@ -17,9 +17,8 @@ app.use(cors());
 
 app.use('/user', userRoutes);
 app.use('/test', testRoutes)
-// console.log("dbPassword", );
 
-const CONNECTION_URL = sprintf("mongodb+srv://casgrana:%s@cluster0.jlyjhgq.mongodb.net/?retryWrites=true&w=majority", 'test');
+const CONNECTION_URL = sprintf("mongodb+srv://casgrana:%s@cluster0.jlyjhgq.mongodb.net/?retryWrites=true&w=majority", dbPsw);
 const PORT = process.env.PORT|| 3000;
 
 mongoose.connect(CONNECTION_URL, function(err) {
