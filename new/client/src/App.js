@@ -1,41 +1,46 @@
-import React, { useEffect } from "react";
-import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
-import { useDispatch } from "react-redux";
-import { getPosts } from './actions/posts'
-import Posts from './components/Posts/Posts';
-import Form from './components/Form/Form';
-import useStyles from './styles';
-import moviePoster from './images/moviethingy.png';
+import React from 'react'
+import {BrowserRouter as Router, Route, Link, Routes} from 'react-router-dom';
+// import SnackbarProvider from 'react-simple-snackbar'
+import Home from './components/Home/Home';
+import Test from './test'
+import SignUpPage from './components/SignUp/SignUpPage'
+import AdminPage from './components/Admin/AdminPage';
 
-const App = () => {
-    const classes = useStyles();
-    const dispatch = useDispatch();
+function App() {
 
-    useEffect(() => {
-        console.log("more test");
-        dispatch(getPosts());
-    }, [dispatch]);
+//   const user = JSON.parse(localStorage.getItem('profile'))
 
-    return (
-        <Container maxidth="lg">
-            <AppBar className={ classes.appBar }position="static" color="inherit">
-                <Typography className={classes.heading}variant="h2" align="center">Movies</Typography>
-                <img className={classes.image}src={moviePoster} alt="epicMoviePoster" height="60"/>
-            </AppBar>
-            <Grow in>
-                <Container>
-                    <Grid container justify="space-between" alignItems="stretch" spacing={3}>
-                        <Grid item xs={12} sm={7}>
-                            <Posts />
-                        </Grid>
-                        <Grid item xs={12} sm={4}>
-                            <Form />
-                        </Grid>
-                    </Grid>
-                </Container>
-            </Grow>
-        </Container>
-    )
+  return (
+    <Router>
+    <div>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/Home">Home</Link>
+          </li>
+          <li>
+            <Link to="/Test">Test</Link>
+          </li>
+          <li>
+            <Link to="/SignUp">SignUp Page</Link>
+          </li>
+          <li>
+            <Link to="/Admin">Admin Page</Link>
+          </li>
+        </ul>
+      </nav>
+
+      {/* 👇️ Wrap your Route components in a Routes component */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/Home" element={<Home />} />
+        <Route path="/test" element={<Test />} />
+        <Route path="/SignUp" element={<SignUpPage />} />
+        <Route path="/Admin" element={<AdminPage />} />
+      </Routes>
+    </div>
+  </Router>
+  );
 }
 
 export default App;

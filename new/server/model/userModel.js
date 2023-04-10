@@ -1,12 +1,12 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
-var bcrypt = require('bcrypt-nodejs')
+import mongoose from 'mongoose';
+import bcrypt from 'bcrypt-nodejs';
 
-var UserSchema = new Schema({
+
+const UserSchema = mongoose.Schema({
     username: {type: String, lowercase: true, required: true, unique: true},
     password: {type: String, required: true},
     email: {type: String, lowercase: true, required: true, unique: true}
-});
+})
 
 UserSchema.pre('save', function(next) {
     var user = this;
@@ -17,4 +17,6 @@ UserSchema.pre('save', function(next) {
     });
 })
 
-module.exports = mongoose.model('User', UserSchema);
+var User = mongoose.model('User', UserSchema);
+
+export default User;
