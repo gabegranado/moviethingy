@@ -3,7 +3,8 @@ import {BrowserRouter as Router, Route, Link, Routes} from 'react-router-dom';
 // import SnackbarProvider from 'react-simple-snackbar'
 import Home from './components/Home/Home';
 import Test from './test'
-import LoginPage from './components/login/LoginPage'
+import SignUpPage from './components/SignUp/SignUpPage'
+import AdminPage from './components/Admin/AdminPage';
 
 function App() {
 
@@ -21,7 +22,10 @@ function App() {
             <Link to="/Test">Test</Link>
           </li>
           <li>
-            <Link to="/Login">Login Page</Link>
+            <Link to="/SignUp">SignUp Page</Link>
+          </li>
+          <li>
+            <Link to="/Admin">Admin Page</Link>
           </li>
         </ul>
       </nav>
@@ -31,7 +35,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/Home" element={<Home />} />
         <Route path="/test" element={<Test />} />
-        <Route path="/Login" element={<LoginPage />} />
+        <Route path="/SignUp" element={<SignUpPage />} />
+        <Route path="/Admin" element={<AdminPage />} />
       </Routes>
     </div>
   </Router>

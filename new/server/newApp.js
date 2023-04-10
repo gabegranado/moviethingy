@@ -5,6 +5,7 @@ import cors from 'cors';
 
 import userRoutes from './routes/userApi.js';
 import testRoutes from './routes/testApi.js';
+import movieRoutes from './routes/movieApi.js';
 
 const app = express();
 import * as CONFIG from "../../config.json" assert { type: "json" };
@@ -16,7 +17,8 @@ app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 app.use(cors());
 
 app.use('/user', userRoutes);
-app.use('/test', testRoutes)
+app.use('/test', testRoutes);
+app.use('/movie', movieRoutes);
 
 const CONNECTION_URL = sprintf("mongodb+srv://casgrana:%s@cluster0.jlyjhgq.mongodb.net/?retryWrites=true&w=majority", dbPsw);
 const PORT = process.env.PORT|| 3000;

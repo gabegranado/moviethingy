@@ -3,19 +3,16 @@ import { Route } from 'react-router-dom';
 
 import App from './App';
 import test from './test';
-// import Greetings from './components/Greetings';
-// import SignupPage from './components/signup/SignupPage';
-import LoginPage from './components/login/LoginPage';
-// import NewEventPage from './components/events/NewEventPage';
-
+import SignUpPage from './components/SignUp/SignUpPage';
+import AdminPage from './components/Admin/AdminPage';
+import Home from './components/Home/Home';
 // import requireAuth from './utils/requireAuth';
 
 export default (
   <Route path="/" component={App}>
+    <Route path="home" component={Home}/>
     <Route path='test' component={test}/>
-    {/* <Route path="/" component={App} /> */}
-    {/* <Route path="signup" component={SignupPage} /> */}
-    <Route path="login" component={LoginPage} />
-    {/* <Route path="new-event" component={requireAuth(NewEventPage)} /> */}
+    <Route path="signUp" component={SignUpPage} />
+    <Route path="admin" component={AdminPage}/>
   </Route>
 )
