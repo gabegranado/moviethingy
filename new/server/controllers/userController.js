@@ -1,7 +1,14 @@
 import express from 'express';
 import mongoose from 'mongoose';
-
+import jwt from 'jsonwebtoken';
 import User from '../model/userModel.js';
+import * as CONFIG from "../../../config.json" assert { type: "json" };
+import * as dotenv from 'dotenv';
+import bcrypt from 'bcrypt-nodejs';
+
+dotenv.config();
+
+var JWT_SECRET = CONFIG.default.JWT_SECRET;
 
 const router = express.Router();
 
@@ -21,6 +28,62 @@ export const createUser = async (req, res) => {
             console.log('error: ', error.message);
             res.status(409).json({ message: error.message });
         }
+    }
+}
+
+export const loginUser = async (req, res) => {
+    try {
+    const { identifier, password } = req.body;
+    const user = await User.find(
+        { $or: [{username: identifier}, {email: identifier}] }
+        ).exec();
+        console.log(user[0].password, password);
+
+    if (!user.length) {
+        res.status(400).json({error: "not valid username/email"});
+    } else {
+        bcrypt.compare(password, user[0].password, function(err, result) {
+            if (err){
+               res.status(400).json({ message: err });
+              }
+              if (result) {
+                const jwtToken = jwt.sign(
+                    { id: user[0]._id, email: user[0].email },
+                    process.env.JWT_KEY
+                );
+                console.log("success, user loged in");
+                res.status(200).json({ success: true, message: "Success, user logged in", token: jwtToken });
+
+              } else {
+                console.log("passwords do not match");
+                res.status(400).json({success: false, message: 'passwords do not match'});
+              }
+          });
+    }
+    } catch (error) {
+        console.log("error ", error.message);
+        res.status(400).json({ message: error.message });
+    }
+
+}
+
+export const getUser = async (req, res) => {
+    try {
+    console.log("getUser", req.params.identifier)
+    const user = await User.find(
+        { $or: [{username: req.params.identifier}, {email: req.params.identifier}] }
+        ).exec();
+
+    if (!user.length) {
+        console.log("not valid username/email")
+        res.status(404).json({error: "not valid username/email"});
+    } else {
+        console.log('user found');
+        res.status(200).json(user);
+    }
+    } catch (error) {
+        console.log("error: ", error);
+        res.status(400).json({ message: error.message });
     }
 }
 
