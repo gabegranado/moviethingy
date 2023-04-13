@@ -8,15 +8,25 @@ import SignUpForm from '../SignUp/SignUpForm';
 import useStyles from '../../styles';
 import moviePoster from '../../images/girlWithTheDragonTattoo.png';
 import { getMovies } from "../../actions/movie";
+import { Cookies } from 'react-cookie';
+import { useSignOut } from "react-auth-kit";
+
 
 const Home = () => {
     const classes = useStyles();
     const dispatch = useDispatch();
+    const cookies = new Cookies();
+    const singOut = useSignOut();
+
+    console.log("logging", cookies.get('_auth_state'))
 
     useEffect(() => {
-        console.log("more test");
         dispatch(getMovies());
     }, [dispatch]);
+
+    const signOutBtn = () => {
+        singOut();
+    }
 
     return (
         <Container maxidth="lg">
@@ -30,9 +40,10 @@ const Home = () => {
                         <Grid item xs={12} sm={7}>
                             <Movies />
                         </Grid>
-                        <Grid item xs={12} sm={4}>
-                            <SignUpForm />
-                        </Grid>
+                        <button onClick={signOutBtn}>signOut</button>
+                        {/* <Grid item xs={12} sm={4}> */}
+                            {/* <SignUpForm /> */}
+                        {/* </Grid> */}
                     </Grid>
                 </Container>
             </Grow>

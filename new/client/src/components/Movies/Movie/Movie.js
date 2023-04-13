@@ -1,9 +1,5 @@
 import React from 'react';
 import { Card, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core/';
-// import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
-// import DeleteIcon from '@material-ui/icons/Delete';
-// import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
-// import moment from 'moment';
 import { useDispatch } from 'react-redux';
 import girlWithTheDragonTattoo from '../../../images/girlWithTheDragonTattoo.png';
 import parasite from '../../../images/parasite.png';
@@ -26,7 +22,7 @@ const Movie = ({ movie, setCurrentId }) => {
     for (let i in options) {
       // console.log("HEY LOOK HERE RIGHT HERE", movie.movieTitle);
       // console.log(typeof movie.movieTitle);
-      console.log("hey look here ", i, options[i][0]);
+      // console.log("hey look here ", i, options[i][0]);
       if (options[i][0] == movie.movieTitle) { return options[i][1] };
     }
     return 'test';

@@ -3,7 +3,7 @@ import * as api from '../api/index.js';
 export const getMovies = () => async (dispatch) => {
   try {
     const { data } = await api.fetchMovies();
-
+    console.log('movie payload', data);
     dispatch({ type: 'FETCH_ALL_MOVIES', payload: data });
   } catch (error) {
     console.log(error.message);

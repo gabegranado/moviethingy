@@ -52,7 +52,7 @@ export const loginUser = async (req, res) => {
                     process.env.JWT_KEY
                 );
                 console.log("success, user loged in");
-                res.status(200).json({ success: true, message: "Success, user logged in", token: jwtToken });
+                res.status(200).json({ success: true, message: "Success, user logged in", token: jwtToken, username: user[0].username });
 
               } else {
                 console.log("passwords do not match");
@@ -79,6 +79,7 @@ export const getUser = async (req, res) => {
         res.status(404).json({error: "not valid username/email"});
     } else {
         console.log('user found');
+        console.log("user stuff", user);
         res.status(200).json(user);
     }
     } catch (error) {
