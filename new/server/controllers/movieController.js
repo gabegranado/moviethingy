@@ -15,6 +15,8 @@ export const addMovie = async (req, res) => {
         // moviePoster
      } = req.body;
 
+     console.log("testing movies", movieTitle);
+
     const newMovie = new Movie({         
         movieTitle,
         movieTheater,
