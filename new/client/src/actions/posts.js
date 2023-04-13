@@ -7,8 +7,24 @@ export const getPosts = () => async (dispatch) => {
 
         dispatch({ type: 'FETCH_ALL', payload: data });
 
+        const { movieData } = await api.fetchTicket(data[0]._id);
+
+        dispatch({ type: 'FETCH_TICKET', payload: movieData})
+        // getTicket(data[0]._id);
+
     } catch (error) {
         console.log(error.message);
+    }
+}
+
+export const getTicket = (userId) => async (dispatch) => {
+    try {
+        const { data } = await api.fetchTicket(userId);
+        console.log('getting ticket', data);
+
+        dispatch({ type: 'FETCH_TICKET', payload: data})
+    } catch (error) {
+        console.log("error: ", error.message);
     }
 }
 
