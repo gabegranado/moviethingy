@@ -7,7 +7,7 @@ const router = express.Router();
 router.post('/', createUser);
 router.post('/login', loginUser);
 router.get('/:identifier', 
-passport.authenticate("jwt", { session: false }),
+// passport.authenticate("jwt", { session: false }),
 getUser);
 
 export default router;

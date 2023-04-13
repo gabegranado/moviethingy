@@ -1,7 +1,7 @@
 import React from 'react';
 import SignUpForm from './SignUpForm';
 
-class LoginPage extends React.Component {
+class SignUpPage extends React.Component {
   render() {
     return (
       <div className="row">
@@ -13,4 +13,4 @@ class LoginPage extends React.Component {
   }
 }
 
-export default LoginPage;
+export default SignUpPage;

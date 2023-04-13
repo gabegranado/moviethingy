@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import posts from './posts'
-import movies from './movies'
-
+import movies from './movies.js';
+import users from './users.js';
+import posts from './posts.js';
 console.log('testtest');
 
-export const reducers = combineReducers({ movies });
+export const reducers = combineReducers({ movies, users, posts });
