@@ -1,6 +1,4 @@
 import React from 'react';
-import { Card, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core/';
-import { useDispatch } from 'react-redux';
 import girlWithTheDragonTattoo from '../../../images/girlWithTheDragonTattoo.png';
 import parasite from '../../../images/parasite.png';
 import uncutgems from '../../../images/uncutgems.png'
@@ -9,8 +7,6 @@ import uncutgems from '../../../images/uncutgems.png'
 import useStyles from './style';
 
 const Movie = ({ movie, setCurrentId }) => {
-  const dispatch = useDispatch();
-  const classes = useStyles();
 
   const options = [
     ['parasite', parasite],
