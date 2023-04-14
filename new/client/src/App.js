@@ -7,7 +7,6 @@ import SignUpPage from './components/SignUp/SignUpPage'
 import AdminPage from './components/Admin/AdminPage';
 import LoginPage from './components/Login/LoginPage';
 import UserAccountPage from './components/UserAccount/UserAccountPage';
-import { Cookies } from 'react-cookie';
 
 function App() {
   // const cookies = new Cookies();

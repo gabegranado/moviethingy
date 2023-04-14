@@ -5,6 +5,6 @@ import { buyMovieTicket, getTickets } from '../controllers/movieTicketController
 const router = express.Router();
 
 router.post('/', buyMovieTicket);
-router.get('/', getTickets);
+router.get('/:id', getTickets);
 
 export default router;

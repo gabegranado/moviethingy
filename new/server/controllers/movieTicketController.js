@@ -36,13 +36,17 @@ export const buyMovieTicket = async (req, res) => {
 
 export const getTickets = async (req, res) => {
     try {
-        const userId = req.body.userId;
+        const userId = req.params.id;
+        console.log(typeof req.params.id, req.params.id, "went through");
+
         const MovieTickets = await MovieTicket.findOne({ userId:  userId });
         const movieId = MovieTickets.movieId;
         const movie = await Movie.find({ _id: movieId });
-        console.log("Movie Ticket ", movie);
+        // console.log("Movie Ticket ", movie);
         res.status(200).json(movie);
     } catch (error) {
+        console.log(typeof req.params.id, req.params.id);
+        console.log("error here")
         res.status(409).json({ message: error.message });
     }
 }

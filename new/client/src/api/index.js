@@ -10,6 +10,7 @@ export const getUserData = (username) => {
         // Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MzZkNmZjY2M5YjFmNTVjMDYwZDA2NSIsImVtYWlsIjoiZG9wZUBkb3BlLmNvbXM1MyIsImlhdCI6MTY4MTMzMTI5OX0.NiJCR34jf78DRTqK4xk--WGOXH3GNNIGy1ViE2niTNU"
     // }) 
 };
+export const fetchTickets = (id) => axios.get(`http://localhost:3000/movieTicket/${id}`);
 export const createUser = (newUser) => { axios.post('http://localhost:3000/user', newUser); };
 export const addMovie = (newMovie) => { axios.post('http://localhost:3000/movie', newMovie); };
 export const fetchMovies = () => axios.get('http://localhost:3000/movie');
