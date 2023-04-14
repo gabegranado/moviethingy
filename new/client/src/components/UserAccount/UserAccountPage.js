@@ -5,6 +5,7 @@ import { getUserData } from '../../actions/user';
 import { getMovies } from '../../actions/movie';
 import { getTickets } from '../../actions/movieTicket';
 import { getPosts } from '../../actions/posts';
+import axios from 'axios';
 
 
 
@@ -16,6 +17,7 @@ const UserAccountPage = () => {
     // const parsed = JSON.parse(JSON.stringify(user))[0];
 
     var username = ''
+    var uId = ''
 
     useEffect(() => {
         dispatch(getPosts(username));
@@ -30,27 +32,39 @@ const UserAccountPage = () => {
 
     const user = useSelector((state) => state.posts);
     // var movies = [];
-    const parsed = JSON.parse(JSON.stringify(user));
 
-    var uId = ''
-    for (var key in parsed[0]) {
-        if (key === "_id") {
-        console.log("key ", key, "thingy ", parsed[0][key]);
-        uId = parsed[0][key];
-        }
-    }
+ 
 
     var m = []
     console.log("parsed shit: ", uId);
 
     console.log("UserPage user id:outside ", uId);
 
-        useEffect((uId) => {
-            if (uId != '') {
-            console.log("UserPage user id: ", uId);
-            dispatch(getTickets("64381c8d491f9e08063ed261"))
-            }
+        useEffect(() => {
+            // if (uId != '') {
+            console.log("this.uId ", username);
+
+            axios.get(`http://localhost:3000/user/${username}`)
+            .then((user)=> {
+                const parsed = JSON.parse(JSON.stringify(user.data));
+                console.log("parsed in .then", parsed, "user ", user.data);
+                for (var key in parsed[0]) {
+                    if (key === "_id") {
+                    console.log("key ", key, "thingy ", parsed[0][key]);
+                        uId = parsed[0][key];
+                    }
+                }
+
+                dispatch(getTickets(uId))
+
+
+            }).catch((err) => {
+                console.log("this error: ", err);
+            })
+
+            // }
         }, [dispatch]);
+
 
         m = useSelector((state) => state.movieTickets);
 
