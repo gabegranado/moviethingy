@@ -1,5 +1,5 @@
 import React from "react";
-import PopUp from "./components/SignUp/SignUpForm";
+import PopUp from "./components/BuyMovie/BuyMovieForm";
 
 export default class test extends React.Component {
   state = {
@@ -18,7 +18,7 @@ export default class test extends React.Component {
         <div className="btn" onClick={this.togglePop}>
           <button>New User?</button>
         </div>
-        {this.state.seen ? <PopUp toggle={this.togglePop} /> : null}
+        {this.state.seen ? <PopUp movieId={'tetst'} toggle={this.togglePop} /> : null}
       </div>
     );
   }

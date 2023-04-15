@@ -7,7 +7,8 @@ import moviePoster from '../../images/girlWithTheDragonTattoo.png';
 import { getMovies } from "../../actions/movie";
 import { Cookies } from 'react-cookie';
 import { useSignOut } from "react-auth-kit";
-
+import { logOutUser } from "../../actions/posts";
+import { clearTickets } from "../../actions/movieTicket";
 
 const Home = () => {
     const classes = useStyles();
@@ -22,6 +23,8 @@ const Home = () => {
     }, [dispatch]);
 
     const signOutBtn = () => {
+        dispatch(logOutUser());
+        dispatch(clearTickets());
         singOut();
     }
 

@@ -11,3 +11,11 @@ export const getTickets = (id) => async (dispatch) => {
         console.log("movie ticket error: ", error.message);
     }
 }
+
+export const clearTickets = () => async (dispatch) => {
+    try {
+        dispatch({ type: 'CLEAR_TICKETS'})
+    } catch (error) {
+        console.log("movie ticket error: ", error.message);
+    }
+}

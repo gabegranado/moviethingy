@@ -10,7 +10,7 @@ export const buyMovieTicket = async (req, res) => {
     const { 
         movieId,
         userId,
-     } = req.body;
+     } = req.params;
 
      console.log(movieId)
 

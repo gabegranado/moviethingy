@@ -8,6 +8,7 @@ import AdminPage from './components/Admin/AdminPage';
 import Home from './components/Home/Home';
 import LoginPage from './components/Login/LoginPage'
 import UserAccountPage from './components/UserAccount/UserAccountPage'
+import MoviesDetails from './components/Movies/MoviesDetails';
 // import requireAuth from './utils/requireAuth';
 
 export default (
@@ -18,6 +19,7 @@ export default (
     <Route path="admin" component={AdminPage}/>
     <Route path="userAccount" component={UserAccountPage}/>
     <Route path="userAccount/:userName" component={UserAccountPage}/>
+    <Route path="movieDetails/:movieId" component={MoviesDetails}/>
     <Route path="login" component={LoginPage} />
   </Route>
 )

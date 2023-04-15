@@ -10,6 +10,8 @@ export default (movieTickets=[], action) => {
         //     console.log('CREATE MOVIE');
         //     //... makes copy of the post object
             // return [...movies, action.payload];
+        case 'CLEAR_TICKETS':
+            return [undefined, action]
         default:
             return movieTickets;
     }
