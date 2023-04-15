@@ -1,16 +1,14 @@
 import React, { useEffect } from "react";
 import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
 import { useDispatch } from "react-redux";
-import { getPosts } from '../../actions/posts'
-import Posts from '../Posts/Posts';
 import Movies from '../Movies/Movies'
-import SignUpForm from '../SignUp/SignUpForm';
 import useStyles from '../../styles';
 import moviePoster from '../../images/girlWithTheDragonTattoo.png';
 import { getMovies } from "../../actions/movie";
 import { Cookies } from 'react-cookie';
 import { useSignOut } from "react-auth-kit";
-
+import { logOutUser } from "../../actions/posts";
+import { clearTickets } from "../../actions/movieTicket";
 
 const Home = () => {
     const classes = useStyles();
@@ -25,6 +23,8 @@ const Home = () => {
     }, [dispatch]);
 
     const signOutBtn = () => {
+        dispatch(logOutUser());
+        dispatch(clearTickets());
         singOut();
     }
 

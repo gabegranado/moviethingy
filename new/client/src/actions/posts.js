@@ -22,3 +22,12 @@ export const createUser = (post) => async (dispatch) => {
         console.log(error);
     }
 }
+
+export const logOutUser = () => async (dispatch) => {
+    try {
+        dispatch({ type: 'LOG_OUT' })
+    } catch (error) {
+        console.log("new error");
+        console.log(error);
+    }
+}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import useStyles from '../Form/styles';
 import { TextField, Button, Typography, Paper } from '@material-ui/core';
 // import FileBase from 'react-file-base64';
@@ -8,7 +8,7 @@ import { browserHistory } from 'react-router';
 import axios, { AxiosError } from "axios";
 import { useSignIn } from "react-auth-kit";
 import { Cookies } from 'react-cookie';
-import { getUserData } from '../../actions/user';
+import { getPosts } from '../../actions/posts';
 
 
 // import { createUser } from '../../actions/posts';
@@ -41,6 +41,7 @@ const LoginForm = () => {
           });
           const username = cookies.get('_auth_state').identifier
           console.log("COOKKIIES", cookies.get('_auth_state').identifier);
+          dispatch(getPosts(username));
           browserHistory.push('UserAccount');
           navigate(`/UserAccount/${username}`);
         // console.log("hreeee", response.data.identifier);

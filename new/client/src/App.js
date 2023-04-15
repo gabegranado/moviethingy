@@ -7,7 +7,7 @@ import SignUpPage from './components/SignUp/SignUpPage'
 import AdminPage from './components/Admin/AdminPage';
 import LoginPage from './components/Login/LoginPage';
 import UserAccountPage from './components/UserAccount/UserAccountPage';
-import { Cookies } from 'react-cookie';
+import MoviesDetails from './components/Movies/MoviesDetails';
 
 function App() {
   // const cookies = new Cookies();
@@ -52,6 +52,7 @@ function App() {
         <Route path="/UserAccount" element={<UserAccountPage />}/>
         <Route path="/UserAccount/:userName" element={<UserAccountPage />}/>
         <Route path="/Admin" element={<AdminPage />} />
+        <Route path="movieDetails/:movieId" element={<MoviesDetails />}/>
       </Routes>
     </div>
   </Router>
