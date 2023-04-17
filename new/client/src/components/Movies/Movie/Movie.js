@@ -40,27 +40,6 @@ const Movie = ({ movie, setCurrentId }) => {
     <img  src={getPoster()} alt={getPoster()}/>
     <Button variant="contained" color="secondary" size="small" onClick={redirctToMoiveDetails} fullWidth>Movie details</Button>
     </div>
-    // <Card className={classes.card}>
-    //   <CardMedia className={classes.media} image={movie.moviePoster} title={movie.movieTitle} />
-    //   <div className={classes.overlay}>
-    //     <Typography variant="h6">{movie.movieTheater}</Typography>
-    //     {/* <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography> */}
-    //   </div>
-    //   {/* <div className={classes.overlay2}>
-    //     <Button style={{ color: 'white' }} size="small" onClick={() => setCurrentId(movie._id)}><MoreHorizIcon fontSize="default" /></Button>
-    //   </div> */}
-    //   {/* <div className={classes.details}>
-    //     <Typography variant="body2" color="textSecondary" component="h2">{post.tags.map((tag) => `#${tag} `)}</Typography>
-    //   </div> */}
-    //   <Typography className={classes.movieTitle} gutterBottom variant="h5" component="h2">{movie.movieTitle}</Typography>
-    //   <CardContent>
-    //     <Typography variant="body2" color="textSecondary" component="p">{movie.movieTitle}</Typography>
-    //   </CardContent>
-    //   {/* <CardActions className={classes.cardActions}>
-    //     <Button size="small" color="primary" onClick={() => dispatch(likePost(post._id))}><ThumbUpAltIcon fontSize="small" /> Like {post.likeCount} </Button>
-    //     <Button size="small" color="primary" onClick={() => dispatch(deletePost(post._id))}><DeleteIcon fontSize="small" /> Delete</Button>
-    //   </CardActions> */}
-    // </Card>
   );
 };
 
