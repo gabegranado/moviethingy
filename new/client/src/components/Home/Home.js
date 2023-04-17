@@ -14,7 +14,7 @@ const Home = () => {
     const classes = useStyles();
     const dispatch = useDispatch();
     const cookies = new Cookies();
-    const singOut = useSignOut();
+    const signOut = useSignOut();
 
     console.log("logging", cookies.get('_auth_state'))
 
@@ -25,7 +25,7 @@ const Home = () => {
     const signOutBtn = () => {
         dispatch(logOutUser());
         dispatch(clearTickets());
-        singOut();
+        signOut();
     }
 
     return (

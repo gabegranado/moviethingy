@@ -10,6 +10,7 @@ import { getPosts } from "../../actions/posts";
 import { buyTicket } from "../../actions/buyTicket";
 import Cookies from "js-cookie";
 import axios from "axios";
+import { getTickets } from "../../actions/movieTicket";
 
 import { createUser } from "../../actions/posts";
 
@@ -40,6 +41,7 @@ const BuyMovieForm = (movieId) => {
     }
 
     dispatch(buyTicket(params.movieId, uId));
+    dispatch(getTickets(uId));
 
     clear();
   };
