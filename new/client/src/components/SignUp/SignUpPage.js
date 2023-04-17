@@ -1,6 +1,6 @@
 import React from "react";
 import SignUpForm from "./SignUpForm";
-import "./SignUpForm.css";
+// import "./SignUpForm.css";
 
 class SignUpPage extends React.Component {
   render() {
@@ -17,4 +17,4 @@ class SignUpPage extends React.Component {
   }
 }
 
-export default LoginPage;
+export default SignUpPage;
