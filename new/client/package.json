@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^13.5.0",
     "@version/react-router-v3": "^1.0.0",
     "axios": "^1.3.4",
+    "js-cookies": "^1.0.4",
     "react": "^18.2.0",
     "react-auth": "^1.0.0",
     "react-auth-kit": "^2.11.0",
