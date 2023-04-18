@@ -127,7 +127,7 @@ const BuyMovieForm = (movieId) => {
 
           </div>
           <div class="button">
-            <input type="submit" value="Buy Now" onSubmit={handleSubmit}></input>
+            <input type="submit" value="Buy Now" onClick={handleSubmit}></input>
           </div>
         </div>
       </form>

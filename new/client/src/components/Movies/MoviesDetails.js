@@ -1,18 +1,25 @@
-import React from 'react';
-import { Grid, CircularProgress } from '@material-ui/core';
-import { useSelector } from 'react-redux';
-import BuyMovieForm from '../BuyMovie/BuyMovieForm';
-import useStyles from './style';
+import React from "react";
+import PopUp from "../BuyMovie/BuyMovieForm";
 
+export default class test extends React.Component {
+  state = {
+    seen: false
+  };
 
-const MoviesDetails = ({ movieId }) => {
-    const movies = useSelector((state) => state.movies);
-    const classes = useStyles();
+  togglePop = () => {
+    this.setState({
+      seen: !this.state.seen
+    });
+  };
 
-    console.log("hmmm" + movies);
+  render() {
     return (
-        <BuyMovieForm movieId={movieId}/>
-      );
-    };
-
-export default MoviesDetails;
+      <div>
+        <div className="btn" onClick={this.togglePop}>
+          <button>Buy Ticket</button>
+        </div>
+        {this.state.seen ? <PopUp movieId={'tetst'} toggle={this.togglePop} /> : null}
+      </div>
+    );
+  }
+}
