@@ -15,3 +15,4 @@ export const createUser = (newUser) => axios.post('http://localhost:3000/user', 
 export const addMovie = (newMovie) => { axios.post('http://localhost:3000/movie', newMovie); };
 export const fetchMovies = () => axios.get('http://localhost:3000/movie');
 export const buyTicket = (movieId, userId) => axios.post(`http://localhost:3000/movieTicket/${movieId}/${userId}`);
+export const getSearch = (search) => axios.get(`http://localhost:3000/movie/search/${search}`);

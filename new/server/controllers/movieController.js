@@ -50,4 +50,14 @@ export const getMovies = async (req, res) => {
     }
 }
 
+export const searchMovie = async (req, res) => {
+    try {
+        const allMovies = await Movie.find({ movieTitle: req.params.searchEntry });
+        console.log("all movies ", allMovies);
+        res.status(200).json(allMovies);
+    } catch (error) {
+        res.status(409).json({ message: error.message });
+    }
+}
+
 export default router;
