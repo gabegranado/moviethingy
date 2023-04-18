@@ -6,6 +6,6 @@ const router = express.Router();
 
 router.post('/', addMovie);
 router.get('/', getMovies);
-router.get('/search', searchMovie);
+router.get('/search/:searchEntry', searchMovie);
 
 export default router;
