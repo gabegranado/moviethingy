@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import useStyles from "../Form/styles";
-import { TextField, Button, Typography, Paper } from "@material-ui/core";
+import { TextField, Button, Typography, Paper, rgbToHex } from "@material-ui/core";
 // import FileBase from 'react-file-base64';
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -10,7 +10,7 @@ import { getPosts } from "../../actions/posts";
 import { buyTicket } from "../../actions/buyTicket";
 import Cookies from "js-cookie";
 import axios from "axios";
-import { getTickets } from "../../actions/movieTicket";
+import './BuyMovieForm.css'
 
 import { createUser } from "../../actions/posts";
 
@@ -32,7 +32,7 @@ const BuyMovieForm = (movieId) => {
     e.preventDefault();
     const parsed = JSON.parse(JSON.stringify(user));
     var uId = "";
-
+    console.log("In Handle Submit")
     for (var key in parsed[0]) {
       console.log("key", key, "parsed", parsed[0][key]);
       if (key === "_id") {
@@ -41,7 +41,6 @@ const BuyMovieForm = (movieId) => {
     }
 
     dispatch(buyTicket(params.movieId, uId));
-    dispatch(getTickets(uId));
 
     clear();
   };
@@ -51,7 +50,9 @@ const BuyMovieForm = (movieId) => {
   };
 
   return (
-    <Paper className={classes.paper}>
+    /*
+    <div className="primary">
+    <Paper elevation={3} variant='outlined' className="paper">
       <form
         autoComplete="off"
         noValidate
@@ -60,6 +61,7 @@ const BuyMovieForm = (movieId) => {
       >
         <Typography variant="h6">Buy Movie</Typography>
         <TextField
+          
           name="username"
           variant="outlined"
           label="Username"
@@ -91,27 +93,48 @@ const BuyMovieForm = (movieId) => {
         <Button
           className={classes.buttonSubmit}
           variant="contained"
-          color="primary"
+          color= "primary"
           size="large"
           type="submit"
           to="/test"
           fullWidth
         >
-          Submit
-        </Button>
-        <Button
-          variant="contained"
-          color="secondary"
-          size="small"
-          onClick={clear}
-          to="/App"
-          fullWidth
-        >
-          Clear
+          Buy Ticket
         </Button>
       </form>
     </Paper>
+    </div>
+    */
+    <div class="container">
+       <div class='title'>Buy Tickets</div>
+      <form action="#">
+        <div class="card-details">
+          <div class="input-box">
+            <span class="details">Name On Card</span>
+            <input type="text" placeholder="Casmiro Grenado"></input>
+          </div>
+          <div class="input-box">
+            <span class="details">Credit Card</span>
+            <input type="text" placeholder="0000-0000-0000-0000"></input>
+          </div>
+          <div class="input-box">
+            <span class="details">CVV</span>
+            <input type="text" placeholder="***"></input>
+          </div>
+          <div class="input-box">
+            <span class="details">Expiration Date</span>
+            <input type="text" placeholder="mm/dd/yyyy"></input>
+
+          </div>
+          <div class="button">
+            <input type="submit" value="Buy Now" onSubmit={handleSubmit}></input>
+          </div>
+        </div>
+      </form>
+    </div>
   );
 };
 
 export default BuyMovieForm;
+
+
