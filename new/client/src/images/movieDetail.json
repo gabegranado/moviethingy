@@ -1,5 +1,15 @@
 {
-    "parasiteSummary": "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.",
-    "thegirlwiththedragontattoSummary": "A spellbinding amalgam of murder mystery, family saga, love story, and financial intrigue. It's about the disappearance forty years ago of Harriet Vanger, a young scion of one of the wealthiest families in Sweden . . . and about her octogenarian uncle, determined to know the truth about what he believes was her murder.",
-    "uncutgemsSummary": "A charismatic jeweller makes a high-stakes bet that could lead to the windfall of a lifetime. In a precarious high-wire act, he must balance business, family and adversaries on all sides in pursuit of the ultimate win."
+    "parasite": {
+        "title": "Parasite",
+        "summary": "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan."
+    },
+    "girlwiththedragontattoo": {
+        "title": "Girl With The Dragon Tattoo",
+        "summary": "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan."
+    },
+    "uncutgems": {
+        "title": "UncutGems",
+        "summary": "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan."
+    }
+
 }
