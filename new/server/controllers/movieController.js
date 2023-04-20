@@ -43,6 +43,7 @@ export const addMovie = async (req, res) => {
 export const getMovies = async (req, res) => {
     try {
         const allMovies = await Movie.find();
+        console.log("found movie");
         console.log("all movies ", allMovies);
         res.status(200).json(allMovies);
     } catch (error) {

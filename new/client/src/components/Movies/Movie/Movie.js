@@ -5,6 +5,7 @@ import uncutgems from '../../../images/uncutgems.png'
 import { TextField, Button, Typography, Paper } from '@material-ui/core';
 import { useNavigate } from "react-router-dom";
 import { browserHistory } from 'react-router';
+import moviedetails from '../../../images/movieDetail.json'
 
 // import { likePost, deletePost } from '../../../actions/posts';
 import useStyles from './style';
@@ -33,6 +34,7 @@ const Movie = ({ movie, setCurrentId }) => {
     browserHistory.push('Home');
     navigate(`/movieDetails/${movie._id}`);
   }
+  console.log(moviedetails.parasiteSummary)
 // 
   return (
     <div>

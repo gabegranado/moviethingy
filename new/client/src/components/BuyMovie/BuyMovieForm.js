@@ -13,6 +13,7 @@ import axios from "axios";
 import './BuyMovieForm.css'
 
 import { createUser } from "../../actions/posts";
+import { PromiseProvider } from "mongoose";
 
 const BuyMovieForm = (movieId) => {
   const [userData, setuserData] = useState({
@@ -32,7 +33,7 @@ const BuyMovieForm = (movieId) => {
     e.preventDefault();
     const parsed = JSON.parse(JSON.stringify(user));
     var uId = "";
-    console.log("In Handle Submit")
+
     for (var key in parsed[0]) {
       console.log("key", key, "parsed", parsed[0][key]);
       if (key === "_id") {
@@ -132,6 +133,7 @@ const BuyMovieForm = (movieId) => {
         </div>
       </form>
     </div>
+    
   );
 };
 
