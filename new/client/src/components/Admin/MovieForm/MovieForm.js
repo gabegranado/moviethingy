@@ -3,7 +3,7 @@ import useStyles from './styles';
 import { TextField, Button, Typography, Paper } from '@material-ui/core';
 // import FileBase from 'react-file-base64';
 import { useDispatch } from 'react-redux';
-import { addMovie } from '../../../actions/movie';
+import { addMovie } from '../../../actions/movies';
 import Select from 'react-select'
 
 const MovieForm = () => {
