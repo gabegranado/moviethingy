@@ -42,7 +42,6 @@ const BuyMovieForm = (movieId) => {
     }
 
     dispatch(buyTicket(params.movieId, uId));
-
     clear();
   };
 

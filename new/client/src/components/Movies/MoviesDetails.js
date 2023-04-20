@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import '../Movies/Movie/MovieDetails.css'
 import moviedetails from '../../images/movieDetail.json'
-import buyMovieForm from '../BuyMovie/BuyMovieForm'
+import BuyMovieForm from '../BuyMovie/BuyMovieForm.js'
 import { render } from "react-dom";
 import { Component } from "react";
 import Popup from "../Popup";
@@ -27,7 +27,7 @@ const MovieDetails = () => {
       </main>
 
       <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
-          <buyMovieForm/>
+        <BuyMovieForm/>
         </Popup>
     </div>
   );
