@@ -9,7 +9,6 @@ import { Cookies } from "react-cookie";
 import { useSignOut } from "react-auth-kit";
 import { logOutUser } from "../../actions/posts";
 import { clearTickets } from "../../actions/movieTicket";
-// import "./Home.css";
 
 const Home = () => {
   //   const classes = useStyles();

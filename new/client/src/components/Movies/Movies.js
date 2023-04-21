@@ -2,6 +2,7 @@ import React from "react";
 import Movie from "./Movie/Movie";
 import { Grid, CircularProgress } from "@material-ui/core";
 import { useSelector } from "react-redux";
+import "../Movies/Movie/Movie.css";
 
 import useStyles from "./style";
 
@@ -11,12 +12,16 @@ const Movies = ({ setCurrentId }) => {
 
   console.log("hmmm" + movies);
   return (
-    <div className="container">
-      {movies.map((movie) => (
-        <Grid key={movie._id} item xs={12} sm={6} md={6}>
+    <div className="app">
+      <h1>Casmiro's Cinema</h1>
+      <div className="container">
+        {movies.map((movie) => (
           <Movie movie={movie} setCurrentId={setCurrentId} />
-        </Grid>
-      ))}
+          // <Grid key={movie._id} item xs={12} sm={6} md={6}>
+          //   <Movie movie={movie} setCurrentId={setCurrentId} />
+          // </Grid>
+        ))}
+      </div>
     </div>
   );
   // return !movies.length ? (

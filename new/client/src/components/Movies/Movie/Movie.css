@@ -12,10 +12,10 @@
   --font-raleway: "Raleway", sans-serif;
 }
 
-/* body {
+body {
   font-family: var(--font-roboto);
   background-color: #212426;
-} */
+}
 
 .app {
   padding: 4rem;
@@ -26,7 +26,7 @@
   flex-direction: column;
 }
 
-/* h1 {
+h1 {
   font-size: 3rem;
   letter-spacing: 0.9px;
   background: linear-gradient(
@@ -38,7 +38,41 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   width: fit-content;
+}
+
+/* .search {
+  width: 71%;
+  margin: 4rem 0 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 1.5rem 1.75rem;
+  border-radius: 3rem;
+  background: #1f2123;
+  -webkit-box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
+  box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
 } */
+
+/* .search input {
+  flex: 1;
+  border: none;
+  font-size: 1.5rem;
+  font-family: var(--font-raleway);
+  font-weight: 500;
+  padding-right: 1rem;
+
+  outline: none;
+  color: #a1a1a1;
+  background: #1f2123;
+} */
+
+.search img {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+}
 
 /* .search button {
   padding: 20px 40px;
@@ -81,12 +115,12 @@
 }
 
 .movie {
-  width: 310px;
-  height: 460px;
+  width: 182px;
+  height: 350px;
   margin: 1.5rem;
 
   position: relative;
-  border-radius: 12px;
+  border-radius: 20px;
   overflow: hidden;
   border: none;
 
@@ -129,7 +163,7 @@
   left: 0;
 }
 
-.movie div:nth-of-type(3) span {
+.movie div:nth-of-type(2) span {
   font-family: "Raleway", sans-serif;
   text-transform: uppercase;
   font-size: 13px;
@@ -138,7 +172,7 @@
   color: #f0f0f0;
 }
 
-.movie div:nth-of-type(3) h3 {
+.movie div:nth-of-type(2) h3 {
   margin-top: 5px;
   font-family: "Roboto Slab", serif;
   color: #f9d3b4;

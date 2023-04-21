@@ -5,8 +5,8 @@
   box-sizing: border-box;
 }
 .pic {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 8.5vh;
 }
 html {
   font-size: 62.5%;
@@ -19,7 +19,8 @@ li {
 }
 a {
   text-decoration: none;
-  color: rgb(204, 204, 204);
+  /* color: rgb(204, 204, 204); */
+  color: white;
 }
 
 .nav {
@@ -27,7 +28,8 @@ a {
   align-items: center;
   justify-content: space-around;
   height: 8vh;
-  background: rgb(0, 33, 65);
+  /* background: rgb(0, 33, 65); */
+  background: rgba(249, 211, 180, 1);
 }
 .nav__brand {
   text-transform: uppercase;
@@ -46,7 +48,8 @@ a {
   width: 2.5rem;
   height: 0.2rem;
   margin: 0.4rem;
-  background: rgb(204, 204, 204);
+  /* background: rgb(204, 204, 204); */
+  background: black;
   transition: 0.3s ease-in;
 }
 
@@ -61,7 +64,8 @@ a {
     right: 0;
     height: 93vh;
     width: 50vw;
-    background: rgb(0, 33, 65);
+    /* background: rgb(0, 33, 65); */
+    background: rgba(249, 211, 180, 1);
     flex-direction: column;
     transform: translateX(100%);
     transition: 0.5s ease-in;

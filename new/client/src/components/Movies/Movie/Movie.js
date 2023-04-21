@@ -19,7 +19,7 @@ const Movie = ({ movie, setCurrentId }) => {
 
   const getPoster = () => {
     for (let i in options) {
-      // console.log("HEY LOOK HERE RIGHT HERE", movie.movieTitle);
+      console.log("HEY LOOK HERE RIGHT HERE", movie.movieTitle);
       // console.log(typeof movie.movieTitle);
       // console.log("hey look here ", i, options[i][0]);
       if (options[i][0] == movie.movieTitle) {
@@ -57,10 +57,10 @@ const Movie = ({ movie, setCurrentId }) => {
           alt={movie.Title}
           onClick={redirctToMoiveDetails}
         ></img>
-      </div>
-      <div>
-        <span>Movie</span>
-        <h3>"A cool Movie"</h3>
+        <div>
+          <span>Movie</span>
+          <h3>"A cool Movie"</h3>
+        </div>
       </div>
     </div>
 
