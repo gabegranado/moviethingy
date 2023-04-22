@@ -34,7 +34,7 @@ export const addMovie = async (req, res) => {
             console.log('Movie Added');
             res.status(201).json(newMovie);
         } catch (error) {
-            console.log('error: ', error.message);
+            console.log('error addMovie ', error.message);
             res.status(409).json({ message: error.message });
         }
     }
@@ -46,6 +46,7 @@ export const getMovies = async (req, res) => {
         console.log("all movies ", allMovies);
         res.status(200).json(allMovies);
     } catch (error) {
+        console.log("error getMovies")
         res.status(409).json({ message: error.message });
     }
 }
@@ -56,7 +57,19 @@ export const searchMovie = async (req, res) => {
         console.log("all movies ", allMovies);
         res.status(200).json(allMovies);
     } catch (error) {
+        console.log("error searchMovies")
         res.status(409).json({ message: error.message });
+    }
+}
+
+export const deleteMovie = async (req, res) => {
+    try {
+        const del = await Movie.deleteOne({ _id: req.params.movieId });
+        console.log("movie Deleted");
+        res.status(200);
+    } catch (error) {
+        console.log("error DeleteMovies");
+        res.status(400);
     }
 }
 

@@ -4,6 +4,7 @@ import { TextField, Button, Typography, Paper } from '@material-ui/core';
 // import FileBase from 'react-file-base64';
 import { useDispatch } from 'react-redux';
 import { addMovie } from '../../../actions/movie';
+import { getMovies } from '../../../actions/movie';
 import Select from 'react-select'
 
 const MovieForm = () => {
@@ -14,8 +15,9 @@ const MovieForm = () => {
     
     const handleSubmit = (e) => {
         e.preventDefault();
-
         dispatch(addMovie(movieData))
+        dispatch(getMovies());
+        window.location.reload();
     }
 
     const clear = () => {

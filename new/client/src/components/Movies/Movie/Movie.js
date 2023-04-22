@@ -19,9 +19,6 @@ const Movie = ({ movie, setCurrentId }) => {
 
   const getPoster = () => {
     for (let i in options) {
-      // console.log("HEY LOOK HERE RIGHT HERE", movie.movieTitle);
-      // console.log(typeof movie.movieTitle);
-      // console.log("hey look here ", i, options[i][0]);
       if (options[i][0] == movie.movieTitle) { return options[i][1] };
     }
     return 'test';
