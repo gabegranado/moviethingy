@@ -12,6 +12,7 @@ export const addMovie = async (req, res) => {
         movieTheaterNumber,
         movieDate,
         movieTime,
+        nowPlaying,
         // moviePoster
      } = req.body;
 
@@ -23,7 +24,7 @@ export const addMovie = async (req, res) => {
         movieTheaterNumber,
         movieDate,
         movieTime,
-        // moviePoster 
+        Boolean(nowPlaying),
     })
     if (req.body.movieTitle == '') {
         console.log('make sure movie title was entered');
