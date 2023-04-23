@@ -1,3 +1,6 @@
+import { Grid, CircularProgress } from '@material-ui/core';
+import useStyles from './style';
+import Comments from '../comments/Comments'
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
@@ -49,9 +52,12 @@ const MovieDetails = () => {
       <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
         <BuyMovieForm/>
         </Popup>
+                <Comments
+        commentsUrl="http://localhost:3004/comments"
+        currentUserId="1"
+      />
     </div>
   );
 }
 
 export default MovieDetails;
-
