@@ -16,7 +16,7 @@ export default class test extends React.Component {
     return (
       <div>
         <div className="btn" onClick={this.togglePop}>
-          <button>Buy</button>
+          <button>Buy Ticket</button>
         </div>
         {this.state.seen ? <PopUp movieId={'tetst'} toggle={this.togglePop} /> : null}
       </div>
