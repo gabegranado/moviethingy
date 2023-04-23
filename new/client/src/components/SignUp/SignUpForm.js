@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
-import useStyles from '../Form/styles';
-import { TextField, Button, Typography, Paper } from '@material-ui/core';
+import React, { useState } from "react";
+import useStyles from "../Form/styles";
+import { TextField, Button, Typography, Paper } from "@material-ui/core";
 // import FileBase from 'react-file-base64';
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { browserHistory } from 'react-router';
 import axios, { AxiosError } from "axios";
 import { getPosts } from '../../actions/posts';
-
-import { createUser } from '../../actions/posts';
+import { createUser } from "../../actions/posts";
 
 const SignUpForm = () => {
     // const [userData, setuserData] = useState({creator: '', title: '', message: '', tags: '', selectedFile: ''})
