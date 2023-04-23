@@ -5,7 +5,7 @@ import useStyles from '../../styles';
 import moviePoster from '../../images/girlWithTheDragonTattoo.png';
 import MovieForm from "./MovieForm/MovieForm";
 import { useSelector } from 'react-redux';
-import { getMovies } from "../../actions/movie";
+import { getMovies } from "../../actions/movies.js";
 import MovieListing from "./MovieListing";
 import axios from "axios";
 
