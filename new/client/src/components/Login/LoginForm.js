@@ -8,7 +8,6 @@ import { browserHistory } from 'react-router';
 import axios, { AxiosError } from "axios";
 import { useSignIn } from "react-auth-kit";
 import { Cookies } from 'react-cookie';
-import { getPosts } from '../../actions/posts';
 
 
 // import { createUser } from '../../actions/posts';
@@ -41,7 +40,6 @@ const LoginForm = () => {
           });
           const username = cookies.get('_auth_state').identifier
           console.log("COOKKIIES", cookies.get('_auth_state').identifier);
-          dispatch(getPosts(username));
           browserHistory.push('UserAccount');
           navigate(`/UserAccount/${username}`);
         // console.log("hreeee", response.data.identifier);

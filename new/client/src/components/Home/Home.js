@@ -28,6 +28,7 @@ const Home = () => {
     singOut();
   };
 
+
   return (
     <div>
       <Movies />

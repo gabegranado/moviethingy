@@ -4,15 +4,20 @@ import { useDispatch } from "react-redux";
 import useStyles from '../../styles';
 import moviePoster from '../../images/girlWithTheDragonTattoo.png';
 import MovieForm from "./MovieForm/MovieForm";
+import { useSelector } from 'react-redux';
+import { getMovies } from "../../actions/movies.js";
+import MovieListing from "./MovieListing";
+import axios from "axios";
 
 const AdminPage = () => {
     const classes = useStyles();
     const dispatch = useDispatch();
+    const movies = useSelector((state) => state.movies);
+    
+    useEffect(() => {
+        dispatch(getMovies());
+    }, [dispatch]);
 
-    // useEffect(() => {
-    //     console.log("more test");
-    //     dispatch(getPosts());
-    // }, [dispatch]);
 
     return (
         <Container maxidth="lg">
@@ -27,6 +32,11 @@ const AdminPage = () => {
                             <MovieForm />
                         </Grid>
                     </Grid>
+                    {movies.map((movie) => (
+              <Grid key={movie._id} item xs={12} sm={6} md={6}>
+                <MovieListing movie={movie} />
+              </Grid>
+            ))}
                 </Container>
             </Grow>
         </Container>
