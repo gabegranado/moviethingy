@@ -9,6 +9,7 @@ import Movie from "../../components/Movies/Movie/Movie";
 const UserAccountPage = () => {
   const params = useParams();
   const dispatch = useDispatch();
+  var movie;
 
   var username = "";
   var movieTicket = [];
@@ -48,9 +49,24 @@ const UserAccountPage = () => {
 
   movieTicket = useSelector((state) => state.movieTickets);
 
+  function getUsername() {
+    const parsed = JSON.parse(JSON.stringify(user));
+    console.log("here")
+
+    for (var key in parsed[0]) {
+      if (key === "username") {
+        return parsed[0][key]
+      }
+    }
+    return ""
+  }
+
+  console.log("movie: ", movieTicket)
+    // movie = await axios.get(`http://localhost:3000/getById/${movieTicket.movieId}'`)
+
   return (
     <div>
-      <h1>test: {JSON.stringify(user)}</h1>
+      <h1>Hello {getUsername()}</h1>
       <h2>movie: {JSON.stringify(movieTicket)}</h2>
       {/* <Movie movie={movieTicket}/> */}
     </div>

@@ -4,56 +4,97 @@ import { TextField, Button, Typography, Paper } from '@material-ui/core';
 // import FileBase from 'react-file-base64';
 import { useDispatch } from 'react-redux';
 import { addMovie } from '../../../actions/movie';
+import { getMovies } from '../../../actions/movie';
+import { Checkbox } from 'react-input-checkbox';
 import Select from 'react-select'
 
 const MovieForm = () => {
     // const [movieData, setmovieData] = useState({creator: '', title: '', message: '', tags: '', selectedFile: ''})
-    const [movieData, setmovieData] = useState({movieTitle: '', movieTheater: '', movieTheaterNumber: '', movieDate: '', movieTime: '', moviePoster: ''})
+    const [movieData, setmovieData] = useState({
+      movieTitle: '',
+       movieTheater: '',
+        movieTheaterNumber: '',
+         movieDate: '',
+          movieTime: '',
+           nowPlaying: false,
+          })
+
+    const [selctorValue, setSelctorValue] = useState("Choose Movie")
+    const [locationSelectorValue, setLocationSelectorValue] = useState("Choose Location")
+
     const classes = useStyles()
     const dispatch = useDispatch();
     
     const handleSubmit = (e) => {
+        movieData.nowPlaying = Boolean(movieData.nowPlaying);
         e.preventDefault();
-
         dispatch(addMovie(movieData))
+        dispatch(getMovies());
+        window.location.reload();
     }
 
     const clear = () => {
-
+      setmovieData({
+        movieTitle: '',
+        movieTheater: '',
+         movieTheaterNumber: '',
+          movieDate: '',
+           movieTime: '',
+            nowPlaying: false,
+      })
+      setSelctorValue('Choose Movie')
     }
 
    const state = {
-      selectedOption: 'test',
+      selectedOption: '',
     }
 
-    const handleChange = (selectedOption) => {
-      state.selectedOption = ({ selectedOption });
-      movieData.movieTitle = selectedOption.value;
+    function handleChange(e) {
+      setSelctorValue(e)
+      setmovieData({ ...movieData, movieTitle: e.value })
     }
-
-    const options = [
+    
+    function handleLocationChange(e) {
+      setLocationSelectorValue(e)
+      setmovieData({ ...movieData, movieTheater: e.value })
+    }
+    const movieOptions = [
       { value: 'parasite', label: 'Parasite' },
       { value: 'girlWithTheDragonTattoo', label: 'Girl With The Dragon Tattoo'},
       { value: 'uncutgems', label: 'Uncut Gems'},
+    ]
+    const locationOptions = [
+      { value: 'lubbock', label: 'Lubbock' },
+      { value: 'amarillo', label: 'Amarillo'},
+      { value: 'levelland', label: 'Levelland'},
+      { value: 'plainview', label: 'Plainview'},
+      { value: 'snyder', label: 'Snyder'},
+      { value: 'abilene', label: 'Abilene'},
     ]
     return (
         <Paper className={classes.paper}>
         <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
           <Typography variant="h6">Add Movie</Typography>
           <Select 
-          options={options} 
-          placeholder={<div>{state.selectedOption}</div>} 
-          value={movieData.movieTitle}
+          options={movieOptions} 
+          placeholder={selctorValue}
+          value={selctorValue}
           onChange={handleChange}
           />
           {/* <TextField name="movieTitle" variant="outlined" label="movie Title" fullWidth value={movieData.movieTitle} onChange={(e) => setmovieData({ ...movieData, movieTitle: e.target.value })} /> */}
-          <TextField name="movieTheater" variant="outlined" label="movie Theater" fullWidth value={movieData.movieTheater} onChange={(e) => setmovieData({ ...movieData, movieTheater: e.target.value })} />
+          <Select 
+          options={locationOptions} 
+          placeholder={locationSelectorValue}
+          value={locationSelectorValue}
+          onChange={handleLocationChange}
+          fullWidth
+          />          
           <TextField name="movieTheaterNumber" type="movieTheaterNumber" variant="outlined" label="movie Theater Number" fullWidth value={movieData.movieTheaterNumber} onChange={(e) => setmovieData({ ...movieData, movieTheaterNumber: e.target.value })} />
           <TextField name="movieDate" variant="outlined" label="movie Date" fullWidth value={movieData.movieDate} onChange={(e) => setmovieData({ ...movieData, movieDate: e.target.value })} />
           <TextField name="movieTime" variant="outlined" label="movie Time" fullWidth value={movieData.movieTime} onChange={(e) => setmovieData({ ...movieData, movieTime: e.target.value })} />
-          {/* <div className={classes.fileInput}><FileBase type="file" multiple={false} onDone={({ base64 }) => setmovieData({ ...movieData, moviePoster: base64 })} /></div> */}
+          <Checkbox name="nowPlaying" labe="now playing" value={Boolean(movieData.nowPlaying)} onChange={(e) => setmovieData({ ...movieData, nowPlaying: e.target.value })}>Now Playing?</Checkbox>
           <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
-          <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
+          <Button Optional variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
         </form>
       </Paper>
     );

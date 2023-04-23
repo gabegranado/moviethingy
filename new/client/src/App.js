@@ -8,6 +8,8 @@ import AdminPage from './components/Admin/AdminPage';
 import LoginPage from './components/Login/LoginPage';
 import UserAccountPage from './components/UserAccount/UserAccountPage';
 import MoviesDetails from './components/Movies/MoviesDetails';
+import BrowseMoviesPageNowPlaying from './components/BrowseMovies/BrowseMoviesPageNowPlaying';
+import BrowseMoviesPageUpcoming from './components/BrowseMovies/BrowseMoviesPageUpcoming';
 
 function App() {
   // const cookies = new Cookies();
@@ -39,6 +41,9 @@ function App() {
           <li>
             <Link to="/Admin">Admin Page</Link>
           </li>
+          <li>
+            <Link to="/Catelog">Catelog</Link>
+          </li>
         </ul>
       </nav>
 
@@ -53,6 +58,8 @@ function App() {
         <Route path="/UserAccount/:userName" element={<UserAccountPage />}/>
         <Route path="/Admin" element={<AdminPage />} />
         <Route path="movieDetails/:movieId" element={<MoviesDetails />}/>
+        <Route path="/Catelog" element={<BrowseMoviesPageNowPlaying />} />
+        <Route path="/CatelogUpcoming" element={<BrowseMoviesPageUpcoming />} />
       </Routes>
     </div>
   </Router>
