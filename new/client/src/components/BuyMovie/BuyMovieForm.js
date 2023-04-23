@@ -25,7 +25,6 @@ const BuyMovieForm = (movieId) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const params = useParams();
-  const c = "ddddddddd";
   const username = Cookies.get("_auth_state");
   const user = useSelector((state) => state.posts);
 

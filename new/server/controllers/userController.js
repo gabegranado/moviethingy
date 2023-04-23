@@ -25,7 +25,7 @@ export const createUser = async (req, res) => {
             console.log('User created');
             res.status(201).json(newUser);
         } catch (error) {
-            console.log('error: ', error.message);
+            console.log('error createUser', error.message);
             res.status(409).json({ message: error.message });
         }
     }
@@ -61,7 +61,7 @@ export const loginUser = async (req, res) => {
           });
     }
     } catch (error) {
-        console.log("error ", error.message);
+        console.log("error loginUser ", error.message);
         res.status(400).json({ message: error.message });
     }
 
@@ -83,7 +83,7 @@ export const getUser = async (req, res) => {
         res.status(200).json(user);
     }
     } catch (error) {
-        console.log("error: ", error);
+        console.log("error getUser", error);
         res.status(400).json({ message: error.message });
     }
 }

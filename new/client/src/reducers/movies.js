@@ -4,9 +4,10 @@
 export default (movies=[], action) => {
     switch (action.type) {
         case 'FETCH_ALL_MOVIES':
-            console.log('need things');
-            // console.log("action.payload" + action.payload);
-
+            console.log('FETCH_ALL_MOVIES');
+            return action.payload;
+        case 'FETCH_SEARCH_MOVIES':
+            console.log('SEARCH_MOVIES');
             return action.payload;
         case 'CREATE':
             console.log('CREATE MOVIE');
