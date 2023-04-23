@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import Movies from "../Movies/Movies";
 // import useStyles from "../../styles";
 import moviePoster from "../../images/girlWithTheDragonTattoo.png";
-import { getMovies } from "../../actions/movie";
+import { getMovies } from "../../actions/movies";
 import { Cookies } from "react-cookie";
 import { useSignOut } from "react-auth-kit";
 import { logOutUser } from "../../actions/posts";

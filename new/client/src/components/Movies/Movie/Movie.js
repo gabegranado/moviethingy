@@ -5,20 +5,22 @@ import { useNavigate } from "react-router-dom";
 import { browserHistory } from 'react-router';
 import moviedetails from '../../../images/movieDetail.json'
 import { getImage } from '../../../images/getImage';
+import movieDetails from '../../../images/movieDetail.json';
 
 const Movie = ({ movie, setCurrentId }) => {
   const navigate = useNavigate();
-
   const redirctToMoiveDetails = () => {
     browserHistory.push('Home');
     navigate(`/movieDetails/${movie._id}`);
   }
 
+
+
   return (
     <div>
       <div className="movie">
         <div>
-          <p>2007</p>
+          <p>{movie.movieTime}</p>
         </div>
         <img
           src={
@@ -26,12 +28,12 @@ const Movie = ({ movie, setCurrentId }) => {
               ? getImage(movie.movieTitle)
               : "https://via.placeholder.com/400"
           }
-          alt={movie.Title}
+          alt={movie.movieTitle}
           onClick={redirctToMoiveDetails}
         ></img>
         <div>
-          <span>Movie</span>
-          <h3>"A cool Movie"</h3>
+          <span>{movie.movieTheater}</span>
+          <h3>{movie.movieTitle}</h3>          
         </div>
       </div>
     </div>
