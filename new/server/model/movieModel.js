@@ -7,7 +7,7 @@ const MovieSchema = mongoose.Schema({
     movieTheaterNumber: {type: String, lowercase: true, required: true, unique: false},
     movieDate: {type: String, lowercase: true, required: true, unique: false},
     movieTime: {type: String, lowercase: true, required: true, unique: false},
-    nowPlaying: {type: Boolean, default: false,}
+    nowPlaying: {type: Boolean, default: false},
     // moviePoster: {type: String, lowercase: true, required: true, unique: true}
 })
 

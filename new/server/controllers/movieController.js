@@ -24,7 +24,7 @@ export const addMovie = async (req, res) => {
         movieTheaterNumber,
         movieDate,
         movieTime,
-        Boolean(nowPlaying),
+        nowPlaying,
     })
     if (req.body.movieTitle == '') {
         console.log('make sure movie title was entered');
@@ -59,6 +59,21 @@ export const searchMovie = async (req, res) => {
         res.status(200).json(allMovies);
     } catch (error) {
         console.log("error searchMovies")
+        res.status(409).json({ message: error.message });
+    }
+}
+
+export const getById = async (req, res) => {
+    try {
+        const movieId = req.params.id;
+        console.log(typeof req.params.id, req.params.id, "went through");
+
+        const movie = await Movie.findOne({ _id:  movieId });
+        console.log("Found movie by id ", movie);
+        res.status(200).json(movie);
+    } catch (error) {
+        console.log(typeof req.params.id, req.params.id);
+        console.log("error getById")
         res.status(409).json({ message: error.message });
     }
 }
