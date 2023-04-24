@@ -79,8 +79,8 @@ function App() {
               </a>
             </li> */}
             <li className="nav__item">
-              <a href="/Catelog" className="nav__link">
-              Catelog
+              <a href="/Test" className="nav__link">
+                Test
               </a>
             </li>
             <li className="nav__item">

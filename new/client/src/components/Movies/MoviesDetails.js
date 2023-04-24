@@ -52,7 +52,7 @@ const MovieDetails = () => {
       <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
         <BuyMovieForm/>
         </Popup>
-        <Comments
+                <Comments
         commentsUrl="http://localhost:3004/comments"
         currentUserId="1"
       />

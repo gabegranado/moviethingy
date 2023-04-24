@@ -29,7 +29,11 @@ body {
 h1 {
   font-size: 3rem;
   letter-spacing: 0.9px;
-  background:rgba(249, 211, 180, 1);
+  background: linear-gradient(
+    90deg,
+    rgba(249, 211, 180, 1) 0%,
+    rgba(249, 211, 180, 0) 100%
+  );
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -165,8 +169,7 @@ h1 {
   font-size: 13px;
   letter-spacing: 2px;
   font-weight: 500;
-  /* color: #f0f0f0; */
-  color: black;
+  color: #f0f0f0;
 }
 
 .movie div:nth-of-type(2) h3 {
