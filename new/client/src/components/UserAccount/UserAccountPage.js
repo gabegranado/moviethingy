@@ -5,6 +5,7 @@ import { getTickets } from "../../actions/movieTicket";
 import { getPosts } from "../../actions/posts";
 import axios from "axios";
 import Movie from "../../components/Movies/Movie/Movie";
+import { getImage } from "../../images/getImage";
 
 const UserAccountPage = () => {
   const params = useParams();
@@ -21,6 +22,7 @@ const UserAccountPage = () => {
   }
 
   useEffect(() => {
+    console.log("in UserAccount: ", username);
     dispatch(getPosts(username));
   }, [dispatch]);
 
@@ -66,10 +68,20 @@ const UserAccountPage = () => {
 
   return (
     <div>
-      <h1>Hello {getUsername()}</h1>
-      <h2>movie: {JSON.stringify(movieTicket)}</h2>
+      <h1>Hello {getUsername()}
+      movie: {JSON.stringify(movieTicket)}</h1>
+      
       {/* <Movie movie={movieTicket}/> */}
+      <img
+          src={
+            getImage(movieTicket.movieTitle) !== "N/A"
+              ? getImage(movieTicket.movieTitle)
+              : "https://via.placeholder.com/400"
+          }
+          alt={movieTicket.movieTitle}
+        ></img>
     </div>
+    
   );
 };
 

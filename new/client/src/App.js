@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Routes, useNavigate } from "react-router-dom";
 // import SnackbarProvider from 'react-simple-snackbar'
 import { useState } from "react";
 import "../src/App.css";
@@ -12,8 +12,14 @@ import UserAccountPage from './components/UserAccount/UserAccountPage';
 import MoviesDetails from './components/Movies/MoviesDetails';
 import BrowseMoviesPageNowPlaying from './components/BrowseMovies/BrowseMoviesPageNowPlaying';
 import BrowseMoviesPageUpcoming from './components/BrowseMovies/BrowseMoviesPageUpcoming';
+import { useSignOut } from "react-auth-kit";
+import { useDispatch, useSelector } from "react-redux";
+import { getMovie } from "./actions/movie";
 
 function App() {
+  const signOut = useSignOut;
+  const navagate = useNavigate;
+  const dispatch = useDispatch;
   // const cookies = new Cookies();
 
   // const username = cookies.get('_auth_state').identifier
@@ -31,6 +37,11 @@ function App() {
       setIcon("nav__toggler toggle");
     } else setIcon("nav__toggler");
   };
+
+  const handleSingOut = () => {
+    console.log("test")
+    // dispatch(getMovie())
+  }
   return (
     <Router>
       <div>
@@ -97,6 +108,14 @@ function App() {
               <a href="/Admin" className="nav__link">
                 Admin
               </a>
+            </li>
+            <li className="nav__item">
+              <a href="/UserAccount" className="nav__link">
+                Account
+              </a>
+            </li>
+            <li>
+              <button onClick={handleSingOut}>sign out</button>
             </li>
           </ul>
           <div onClick={navToggle} className={icon}>
