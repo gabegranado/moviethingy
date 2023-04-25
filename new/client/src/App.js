@@ -22,11 +22,19 @@ import { useSignOut } from "react-auth-kit";
 import { useDispatch, useSelector } from "react-redux";
 import SignOutButton from "./components/SignOut/SignOutButton";
 import { getMovie } from "./actions/movie";
+import Cookies from 'js-cookie';
 
 function App() {
-  const signOut = useSignOut;
-  const navagate = useNavigate;
-  const dispatch = useDispatch;
+  const user = Cookies.get('_auth_state');
+  var username = ""
+
+  if (user) {
+  for (var key in JSON.parse(user)) {
+    if (key == 'identifier') {
+      username = JSON.parse(user)[key]
+    }
+  }
+}
   // const cookies = new Cookies();
 
   // const username = cookies.get('_auth_state').identifier
@@ -45,38 +53,9 @@ function App() {
     } else setIcon("nav__toggler");
   };
 
-  const handleSingOut = () => {
-    console.log("test");
-    // dispatch(getMovie())
-  };
   return (
     <Router>
       <div>
-        {/* <nav>
-        <ul>
-          <li>
-            <Link to="/Home">Home</Link>
-          </li>
-          <li>
-            <Link to="/Test">Test</Link>
-          </li>
-          <li>
-            <Link to="/SignUp">SignUp Page</Link>
-          </li>
-          <li>
-          <Link to="/Login">Login Page</Link>
-          </li>
-          <li>
-          <Link to="/UserAccount">Account</Link>
-          </li>
-          <li>
-            <Link to="/Admin">Admin Page</Link>
-          </li>
-          <li>
-            <Link to="/Catelog">Catelog</Link>
-          </li>
-        </ul>
-      </nav> */}
         <nav className="nav">
           <a href="/Home" className="nav__brand">
             {/* Casmiro's Cinema's */}
@@ -117,7 +96,7 @@ function App() {
               </a>
             </li>
             <li className="nav__item">
-              <a href="/UserAccount" className="nav__link">
+              <a href={`/UserAccount/${username}`} className="nav__link">
                 Account
               </a>
             </li>

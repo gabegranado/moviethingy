@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { logOutUser } from "../../actions/posts";
 import { clearTickets } from "../../actions/movieTicket";
 import { useCookies } from "react-cookie";
+import Cookies from 'js-cookie';
 
 const signOutButton = () => {
   const [cookies, setCookie, removeCookie] = useCookies(["cookie-name"]);
@@ -12,10 +13,11 @@ const signOutButton = () => {
 
   const handleSignOut = () => {
     // setCookie('test', 'test', [])
-    removeCookie("_auth_state");
-    removeCookie("_auth_storage");
-    removeCookie("_auth_type");
-    removeCookie("_auth");
+    // removeCookie("_auth_state");
+    // removeCookie("_auth_storage");
+    // removeCookie("_auth_type");
+    // removeCookie("_auth");
+    Cookies.remove("_auth_state")
     dispatch(logOutUser());
     dispatch(clearTickets());
     navigate("/");

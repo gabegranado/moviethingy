@@ -7,6 +7,7 @@ import { addMovie } from '../../../actions/movie';
 import { getMovies } from '../../../actions/movies.js';
 import { Checkbox } from 'react-input-checkbox';
 import Select from 'react-select'
+import movieDetails from '../../../images/movieDetail.json'
 
 const MovieForm = () => {
     // const [movieData, setmovieData] = useState({creator: '', title: '', message: '', tags: '', selectedFile: ''})
@@ -59,10 +60,21 @@ const MovieForm = () => {
       setmovieData({ ...movieData, movieTheater: e.value })
     }
     const movieOptions = [
-      { value: 'parasite', label: 'Parasite' },
-      { value: 'girlWithTheDragonTattoo', label: 'Girl With The Dragon Tattoo'},
-      { value: 'uncutgems', label: 'Uncut Gems'},
+      // { value: 'parasite', label: 'Parasite' },
+      // { value: 'girlWithTheDragonTattoo', label: 'Girl With The Dragon Tattoo'},
+      // { value: 'uncutgems', label: 'Uncut Gems'},
     ]
+
+    // for (var key in Object.keys(movieDetails)) {
+    //   console.log("keys in admin page ", key)
+    // }
+    console.log(Object.keys(movieDetails))
+    const keys = Object.keys(movieDetails)
+    for (var i in keys) {
+      movieOptions.push({value: keys[i], label: movieDetails[keys[i]].title})
+    }
+
+    console.log(movieOptions)
     const locationOptions = [
       { value: 'lubbock', label: 'Lubbock' },
       { value: 'amarillo', label: 'Amarillo'},

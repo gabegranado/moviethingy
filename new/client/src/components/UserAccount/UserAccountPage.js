@@ -4,9 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getTickets } from "../../actions/movieTicket";
 import { getPosts } from "../../actions/posts";
 import axios from "axios";
-import Movie from "../../components/Movies/Movie/Movie";
-import { getImage } from "../../images/getImage";
-import uncutgems from '../../images/uncutgems.png'
+import { getAccountMovieImage } from "../../images/getAccountMovieImage";
+
 const UserAccountPage = () => {
   const params = useParams();
   const dispatch = useDispatch();
@@ -70,8 +69,8 @@ const UserAccountPage = () => {
       {/* <Movie movie={movieTicket}/> */}
       <img
           src={
-            getImage() !== "N/A"
-              ? getImage()
+            getAccountMovieImage() !== "N/A"
+              ? getAccountMovieImage()
               : "https://via.placeholder.com/400"
           }
           alt={movieTicket.movieTitle}
