@@ -1,6 +1,6 @@
 import express from 'express';
 
-import { addMovie, getMovies, getById, searchMovie, deleteMovie } from '../controllers/movieController.js';
+import { addMovie, getMovies, getById, searchMovie, deleteMovie, findMovieById } from '../controllers/movieController.js';
 const router = express.Router();
 
 router.post('/', addMovie);

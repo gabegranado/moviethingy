@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getTickets } from "../../actions/movieTicket";
 import { getPosts } from "../../actions/posts";
 import axios from "axios";
-import Movie from "../../components/Movies/Movie/Movie";
+import { getAccountMovieImage } from "../../images/getAccountMovieImage";
 
 const UserAccountPage = () => {
   const params = useParams();
@@ -21,6 +21,7 @@ const UserAccountPage = () => {
   }
 
   useEffect(() => {
+    console.log("in UserAccount: ", username);
     dispatch(getPosts(username));
   }, [dispatch]);
 
@@ -47,9 +48,9 @@ const UserAccountPage = () => {
       });
   }, [dispatch]);
 
-  movieTicket = useSelector((state) => state.movieTickets);
 
   function getUsername() {
+    console.log("movie tickets: ", movieTicket)
     const parsed = JSON.parse(JSON.stringify(user));
     console.log("here")
 
@@ -61,15 +62,21 @@ const UserAccountPage = () => {
     return ""
   }
 
-  console.log("movie: ", movieTicket)
-    // movie = await axios.get(`http://localhost:3000/getById/${movieTicket.movieId}'`)
-
   return (
     <div>
       <h1>Hello {getUsername()}</h1>
-      <h2>movie: {JSON.stringify(movieTicket)}</h2>
+      
       {/* <Movie movie={movieTicket}/> */}
+      <img
+          src={
+            getAccountMovieImage() !== "N/A"
+              ? getAccountMovieImage()
+              : "https://via.placeholder.com/400"
+          }
+          alt={movieTicket.movieTitle}
+        ></img>
     </div>
+    
   );
 };
 
