@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import Movies from "../Movies/Movies";
 // import useStyles from "../../styles";
-import { getMovies } from "../../actions/movie";
 import { getMovies } from "../../actions/movies";
 import { Cookies } from "react-cookie";
 import { useSignOut } from "react-auth-kit";
