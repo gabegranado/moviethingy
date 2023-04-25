@@ -14,6 +14,7 @@ export const getTickets = (id) => async (dispatch) => {
 
 export const clearTickets = () => async (dispatch) => {
     try {
+        console.log("cleearing tickets")
         dispatch({ type: 'CLEAR_TICKETS'})
     } catch (error) {
         console.log("movie ticket error: ", error.message);

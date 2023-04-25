@@ -17,6 +17,7 @@ const BrowseMoviesNowPlaying = ({ setCurrentId }) => {
     const classes = useStyles();
 
     useEffect(() => {
+      console.log("in browse movies")
         dispatch(getMovies());
         setShownMovies(get_shown_movies())
     }, [dispatch]);
@@ -43,7 +44,7 @@ const BrowseMoviesNowPlaying = ({ setCurrentId }) => {
             <h1>Now Playing</h1>
             <Button onClick={switchPage}>Upcoming</Button>
           <Grid className={classes.container} container alignItems="stretch" spacing={3}>
-            {shownMovies.map((movie) => (
+            {get_shown_movies().map((movie) => (
               <Grid key={movie._id} item xs={12} sm={6} md={6}>
                 <Movie movie={movie} setCurrentId={setCurrentId} />
               </Grid>

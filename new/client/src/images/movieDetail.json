@@ -1,14 +1,22 @@
 {
-    "parasite": {
-        "title": "Parasite",
+    "barbie": {
+        "title": "Barbie",
         "summary": "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan."
     },
-    "girlwiththedragontattoo": {
-        "title": "Girl With The Dragon Tattoo",
+    "spidermanacrosthespiderverse": {
+        "title": "SPIDER-MAN: ACROSS THE SPIDER-VERSE",
         "summary": "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan."
     },
-    "uncutgems": {
-        "title": "UncutGems",
+    "oppenheimer": {
+        "title": "Oppenheimer",
+        "summary": "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan."
+    },
+    "johnwick": {
+        "title": "John Wick",
+        "summary": "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan."
+    },
+    "mariomovie": {
+        "title": "Mario Movie",
         "summary": "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan."
     }
 

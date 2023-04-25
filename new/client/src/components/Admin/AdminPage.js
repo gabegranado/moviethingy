@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
 import { useDispatch } from "react-redux";
 import useStyles from '../../styles';
-import moviePoster from '../../images/girlWithTheDragonTattoo.png';
 import MovieForm from "./MovieForm/MovieForm";
 import { useSelector } from 'react-redux';
 import { getMovies } from "../../actions/movies.js";
@@ -10,6 +9,7 @@ import MovieListing from "./MovieListing";
 import axios from "axios";
 
 const AdminPage = () => {
+    const moviePoster = ''
     const classes = useStyles();
     const dispatch = useDispatch();
     const movies = useSelector((state) => state.movies);
