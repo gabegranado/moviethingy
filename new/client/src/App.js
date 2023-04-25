@@ -1,19 +1,26 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link, Routes, useNavigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Routes,
+  useNavigate,
+} from "react-router-dom";
 // import SnackbarProvider from 'react-simple-snackbar'
 import { useState } from "react";
 import "../src/App.css";
-import Home from './components/Home/Home';
-import Test from './test'
-import SignUpPage from './components/SignUp/SignUpPage'
-import AdminPage from './components/Admin/AdminPage';
-import LoginPage from './components/Login/LoginPage';
-import UserAccountPage from './components/UserAccount/UserAccountPage';
-import MoviesDetails from './components/Movies/MoviesDetails';
-import BrowseMoviesPageNowPlaying from './components/BrowseMovies/BrowseMoviesPageNowPlaying';
-import BrowseMoviesPageUpcoming from './components/BrowseMovies/BrowseMoviesPageUpcoming';
+import Home from "./components/Home/Home";
+import Test from "./test";
+import SignUpPage from "./components/SignUp/SignUpPage";
+import AdminPage from "./components/Admin/AdminPage";
+import LoginPage from "./components/Login/LoginPage";
+import UserAccountPage from "./components/UserAccount/UserAccountPage";
+import MoviesDetails from "./components/Movies/MoviesDetails";
+import BrowseMoviesPageNowPlaying from "./components/BrowseMovies/BrowseMoviesPageNowPlaying";
+import BrowseMoviesPageUpcoming from "./components/BrowseMovies/BrowseMoviesPageUpcoming";
 import { useSignOut } from "react-auth-kit";
 import { useDispatch, useSelector } from "react-redux";
+import SignOutButton from "./components/SignOut/SignOutButton";
 import { getMovie } from "./actions/movie";
 
 function App() {
@@ -39,9 +46,9 @@ function App() {
   };
 
   const handleSingOut = () => {
-    console.log("test")
+    console.log("test");
     // dispatch(getMovie())
-  }
+  };
   return (
     <Router>
       <div>
@@ -91,7 +98,7 @@ function App() {
             </li> */}
             <li className="nav__item">
               <a href="/Catelog" className="nav__link">
-              Catelog
+                Catelog
               </a>
             </li>
             <li className="nav__item">
@@ -115,7 +122,7 @@ function App() {
               </a>
             </li>
             <li>
-              <button onClick={handleSingOut}>sign out</button>
+              <SignOutButton />
             </li>
           </ul>
           <div onClick={navToggle} className={icon}>
@@ -125,22 +132,25 @@ function App() {
           </div>
         </nav>
 
-      {/* 👇️ Wrap your Route components in a Routes component */}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Home" element={<Home />} />
-        <Route path="/test" element={<Test />} />
-        <Route path="/SignUp" element={<SignUpPage />} />
-        <Route path="/Login" element={<LoginPage />} />
-        <Route path="/UserAccount" element={<UserAccountPage />}/>
-        <Route path="/UserAccount/:userName" element={<UserAccountPage />}/>
-        <Route path="/Admin" element={<AdminPage />} />
-        <Route path="movieDetails/:movieId" element={<MoviesDetails />}/>
-        <Route path="/Catelog" element={<BrowseMoviesPageNowPlaying />} />
-        <Route path="/CatelogUpcoming" element={<BrowseMoviesPageUpcoming />} />
-      </Routes>
-    </div>
-  </Router>
+        {/* 👇️ Wrap your Route components in a Routes component */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Home" element={<Home />} />
+          <Route path="/test" element={<Test />} />
+          <Route path="/SignUp" element={<SignUpPage />} />
+          <Route path="/Login" element={<LoginPage />} />
+          <Route path="/UserAccount" element={<UserAccountPage />} />
+          <Route path="/UserAccount/:userName" element={<UserAccountPage />} />
+          <Route path="/Admin" element={<AdminPage />} />
+          <Route path="movieDetails/:movieId" element={<MoviesDetails />} />
+          <Route path="/Catelog" element={<BrowseMoviesPageNowPlaying />} />
+          <Route
+            path="/CatelogUpcoming"
+            element={<BrowseMoviesPageUpcoming />}
+          />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

@@ -8,8 +8,8 @@ import { browserHistory } from "react-router";
 import { useParams } from "react-router-dom";
 import { getPosts } from "../../actions/posts";
 import { buyTicket } from "../../actions/buyTicket";
+import { getTickets } from "../../actions/movieTicket";
 import Cookies from "js-cookie";
-import axios from "axios";
 import './BuyMovieForm.css'
 
 import { createUser } from "../../actions/posts";
@@ -51,6 +51,7 @@ const BuyMovieForm = (movieId) => {
     
     if (uId){
     dispatch(buyTicket(params.movieId, uId));
+    dispatch(getTickets(uId));
     navigate(`/UserAccount/${u}`);
   } else {
       alert('Error: you must be signed in to buy tickets');
