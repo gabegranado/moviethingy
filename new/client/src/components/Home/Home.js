@@ -2,11 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import Movies from "../Movies/Movies";
 // import useStyles from "../../styles";
-<<<<<<< HEAD
 import { getMovies } from "../../actions/movies";
-=======
-import { getMovies } from "../../actions/movie";
->>>>>>> 4ac9a654cb2aba3e35440366ccffb896f7fcca86
 import { Cookies } from "react-cookie";
 import { useSignOut } from "react-auth-kit";
 import { logOutUser } from "../../actions/posts";
