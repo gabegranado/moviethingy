@@ -23,7 +23,11 @@ export const createUser = async (req, res) => {
         try {
             await newUser.save();
             console.log('User created');
-            res.status(201).json(newUser);
+            const jwtToken = jwt.sign(
+                { username: username, email: email },
+                process.env.JWT_KEY
+            );
+            res.status(201).json({ success: true, message: "Success, Created", token: jwtToken, username: username, user: newUser });
         } catch (error) {
             console.log('error createUser', error.message);
             res.status(409).json({ message: error.message });
@@ -48,7 +52,7 @@ export const loginUser = async (req, res) => {
               }
               if (result) {
                 const jwtToken = jwt.sign(
-                    { id: user[0]._id, email: user[0].email },
+                    { username: user[0].username, email: user[0].email },
                     process.env.JWT_KEY
                 );
                 console.log("success, user loged in");

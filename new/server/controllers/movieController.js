@@ -59,6 +59,10 @@ export const findMovieById = async (req, res) => {
         console.log("found movie", movie);
         res.status(200).json(movie);
     } catch (error) {
+        console.log("error findMovieById")
+        res.status(409).json({ message: error.message });
+    }
+}
 
 export const searchMovie = async (req, res) => {
     try {

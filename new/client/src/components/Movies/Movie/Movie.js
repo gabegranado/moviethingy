@@ -5,8 +5,12 @@ import { useNavigate } from "react-router-dom";
 import { browserHistory } from 'react-router';
 import moviedetails from '../../../images/movieDetail.json'
 import { getImage } from '../../../images/getImage';
+import movieDetails from '../../../images/movieDetail.json';
+import { useDispatch, useSelector } from "react-redux";
+import { getMovie } from "../../../actions/movie";
 
 const Movie = ({ movie, setCurrentId }) => {
+  const dispatch = useDispatch;
   const navigate = useNavigate();
 
   const redirctToMoiveDetails = () => {

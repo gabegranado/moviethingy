@@ -8,6 +8,7 @@ import { browserHistory } from 'react-router';
 import axios, { AxiosError } from "axios";
 import { getPosts } from '../../actions/posts';
 import { createUser } from "../../actions/posts";
+import { useSignIn } from "react-auth-kit";
 
 const SignUpForm = () => {
     // const [userData, setuserData] = useState({creator: '', title: '', message: '', tags: '', selectedFile: ''})
@@ -16,6 +17,7 @@ const SignUpForm = () => {
     const classes = useStyles()
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const signIn = useSignIn();
     // const user = useSelector((state) => state.posts);
 
     const handleSubmit = async (e) => {
@@ -26,6 +28,12 @@ const SignUpForm = () => {
           userData
         ).then((data) => {
           if (data.status === 201) {
+            signIn({
+              token: data.data.token,
+              expiresIn: 3600,
+              tokenType: "Bearer",
+              authState: { identifier: data.data.username },
+            });
             dispatch(getPosts(data.data.username));
             browserHistory.push('UserAccount');
             navigate(`/UserAccount/${data.data.username}`);
