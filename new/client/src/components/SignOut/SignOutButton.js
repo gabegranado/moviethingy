@@ -23,7 +23,13 @@ const signOutButton = () => {
     navigate("/");
   };
 
-  return <button onClick={handleSignOut}>Sign Out</button>;
+  if(Cookies.get("_auth_state")) {
+      return (
+  <button onClick={handleSignOut}>Sign Out</button>
+  );
+  }
+  return;
+
 };
 
 export default signOutButton;
