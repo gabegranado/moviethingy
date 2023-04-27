@@ -5,6 +5,7 @@ import { getTickets } from "../../actions/movieTicket";
 import { getPosts } from "../../actions/posts";
 import axios from "axios";
 import { getAccountMovieImage } from "../../images/getAccountMovieImage";
+import QrCode from '../../images/QrCode.png';
 
 const UserAccountPage = () => {
   const params = useParams();
@@ -62,6 +63,17 @@ const UserAccountPage = () => {
     return ""
   }
 
+  function getQrCode() {
+    if (!(getAccountMovieImage() == undefined)) {
+      return (
+        <div>
+          <h1>Scan this at the theater</h1>
+        <img src={QrCode} width='200' height='200'/>
+        </div>
+      );
+  }
+}
+
   return (
     <div>
       <h1>Hello {getUsername()}</h1>
@@ -75,6 +87,7 @@ const UserAccountPage = () => {
           }
           alt={movieTicket.movieTitle}
         ></img>
+        {getQrCode()}
     </div>
     
   );
