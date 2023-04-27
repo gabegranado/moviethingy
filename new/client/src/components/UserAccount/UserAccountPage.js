@@ -49,6 +49,7 @@ const UserAccountPage = () => {
       });
   }, [dispatch]);
 
+  movieTicket = useSelector((state) => state.movieTickets);
 
   function getUsername() {
     console.log("movie tickets: ", movieTicket)
@@ -65,9 +66,10 @@ const UserAccountPage = () => {
 
   function getQrCode() {
     if (!(getAccountMovieImage() == undefined)) {
+      console.log(JSON.parse(JSON.stringify(movieTicket))[0].movieTitle)
       return (
         <div>
-          <h1>Scan this at the theater</h1>
+          <h1>You're all set to see {JSON.parse(JSON.stringify(movieTicket))[0].movieTitle}. scan this at the Theater!</h1>
         <img src={QrCode} width='200' height='200'/>
         </div>
       );
