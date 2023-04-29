@@ -10,46 +10,43 @@ import Select from 'react-select'
 import movieDetails from '../../../images/movieDetail.json'
 
 const MovieForm = () => {
-    // const [movieData, setmovieData] = useState({creator: '', title: '', message: '', tags: '', selectedFile: ''})
-    const [movieData, setmovieData] = useState({
-      movieTitle: '',
-       movieTheater: '',
-        movieTheaterNumber: '',
-         movieDate: '',
-          movieTime: '',
-           nowPlaying: false,
-          })
+  // const [movieData, setmovieData] = useState({creator: '', title: '', message: '', tags: '', selectedFile: ''})
+  const [movieData, setmovieData] = useState({
+    movieTitle: "",
+    movieTheater: "",
+    movieTheaterNumber: "",
+    movieDate: "",
+    movieTime: "",
+    nowPlaying: false,
+  });
 
-    const [selctorValue, setSelctorValue] = useState("Choose Movie")
-    const [locationSelectorValue, setLocationSelectorValue] = useState("Choose Location")
+  const [selctorValue, setSelctorValue] = useState("Choose Movie");
+  const [locationSelectorValue, setLocationSelectorValue] =
+    useState("Choose Location");
 
-    const classes = useStyles()
-    const dispatch = useDispatch();
-    
-    const handleSubmit = (e) => {
-        movieData.nowPlaying = Boolean(movieData.nowPlaying);
-        e.preventDefault();
-        dispatch(addMovie(movieData))
-        dispatch(getMovies());
-        window.location.reload();
-    }
+  const classes = useStyles();
+  const dispatch = useDispatch();
 
-    const clear = () => {
-      setmovieData({
-        movieTitle: '',
-        movieTheater: '',
-         movieTheaterNumber: '',
-          movieDate: '',
-           movieTime: '',
-            nowPlaying: false,
-      })
-      setSelctorValue('Choose Movie')
-    }
+  const handleSubmit = (e) => {
+    movieData.nowPlaying = Boolean(movieData.nowPlaying);
+    e.preventDefault();
+    dispatch(addMovie(movieData));
+    dispatch(getMovies());
+    window.location.reload();
+  };
 
-   const state = {
-      selectedOption: '',
-    }
-
+  const clear = () => {
+    setmovieData({
+      movieTitle: "",
+      movieTheater: "",
+      movieTheaterNumber: "",
+      movieDate: "",
+      movieTime: "",
+      nowPlaying: false,
+    });
+    setSelctorValue("Choose Movie");
+  };
+  
     function handleChange(e) {
       setSelctorValue(e)
       setmovieData({ ...movieData, movieTitle: e.value })
@@ -92,24 +89,79 @@ const MovieForm = () => {
           placeholder={selctorValue}
           value={selctorValue}
           onChange={handleChange}
-          />
-          {/* <TextField name="movieTitle" variant="outlined" label="movie Title" fullWidth value={movieData.movieTitle} onChange={(e) => setmovieData({ ...movieData, movieTitle: e.target.value })} /> */}
-          <Select 
-          options={locationOptions} 
+        />
+        {/* <TextField name="movieTitle" variant="outlined" label="movie Title" fullWidth value={movieData.movieTitle} onChange={(e) => setmovieData({ ...movieData, movieTitle: e.target.value })} /> */}
+        <Select
+          options={locationOptions}
           placeholder={locationSelectorValue}
           value={locationSelectorValue}
           onChange={handleLocationChange}
           fullWidth
-          />          
-          <TextField name="movieTheaterNumber" type="movieTheaterNumber" variant="outlined" label="movie Theater Number" fullWidth value={movieData.movieTheaterNumber} onChange={(e) => setmovieData({ ...movieData, movieTheaterNumber: e.target.value })} />
-          <TextField name="movieDate" variant="outlined" label="movie Date" fullWidth value={movieData.movieDate} onChange={(e) => setmovieData({ ...movieData, movieDate: e.target.value })} />
-          <TextField name="movieTime" variant="outlined" label="movie Time" fullWidth value={movieData.movieTime} onChange={(e) => setmovieData({ ...movieData, movieTime: e.target.value })} />
-          <Checkbox name="nowPlaying" labe="now playing" value={Boolean(movieData.nowPlaying)} onChange={(e) => setmovieData({ ...movieData, nowPlaying: e.target.value })}>Now Playing?</Checkbox>
-          <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
-          <Button Optional variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
-        </form>
-      </Paper>
-    );
-}
+        />
+        <TextField
+          name="movieTheaterNumber"
+          type="movieTheaterNumber"
+          variant="outlined"
+          label="movie Theater Number"
+          fullWidth
+          value={movieData.movieTheaterNumber}
+          onChange={(e) =>
+            setmovieData({ ...movieData, movieTheaterNumber: e.target.value })
+          }
+        />
+        <TextField
+          name="movieDate"
+          variant="outlined"
+          label="movie Date"
+          fullWidth
+          value={movieData.movieDate}
+          onChange={(e) =>
+            setmovieData({ ...movieData, movieDate: e.target.value })
+          }
+        />
+        <TextField
+          name="movieTime"
+          variant="outlined"
+          label="movie Time"
+          fullWidth
+          value={movieData.movieTime}
+          onChange={(e) =>
+            setmovieData({ ...movieData, movieTime: e.target.value })
+          }
+        />
+        <Checkbox
+          name="nowPlaying"
+          labe="now playing"
+          value={Boolean(movieData.nowPlaying)}
+          onChange={(e) =>
+            setmovieData({ ...movieData, nowPlaying: e.target.value })
+          }
+        >
+          Now Playing?
+        </Checkbox>
+        <Button
+          className={classes.buttonSubmit}
+          variant="contained"
+          color="primary"
+          size="large"
+          type="submit"
+          fullWidth
+        >
+          Submit
+        </Button>
+        <Button
+          Optional
+          variant="contained"
+          color="secondary"
+          size="small"
+          onClick={clear}
+          fullWidth
+        >
+          Clear
+        </Button>
+      </form>
+    </Paper>
+  );
+};
 
 export default MovieForm;

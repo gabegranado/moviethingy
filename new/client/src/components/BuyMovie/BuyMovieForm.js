@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import useStyles from "../Form/styles";
-import { TextField, Button, Typography, Paper, rgbToHex } from "@material-ui/core";
+import {
+  TextField,
+  Button,
+  Typography,
+  Paper,
+  rgbToHex,
+} from "@material-ui/core";
 // import FileBase from 'react-file-base64';
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -10,7 +16,8 @@ import { getPosts } from "../../actions/posts";
 import { buyTicket } from "../../actions/buyTicket";
 import { getTickets } from "../../actions/movieTicket";
 import Cookies from "js-cookie";
-import './BuyMovieForm.css'
+import axios from "axios";
+import "./BuyMovieForm.css";
 
 import { createUser } from "../../actions/posts";
 import { PromiseProvider } from "mongoose";
@@ -122,7 +129,7 @@ const BuyMovieForm = (movieId) => {
     </div>
     */
     <div class="container">
-       <div class='title'>Buy Tickets</div>
+      <div class="title">Buy Tickets</div>
       <form action="#">
         <div class="card-details">
           <div class="input-box">
@@ -140,7 +147,6 @@ const BuyMovieForm = (movieId) => {
           <div class="input-box">
             <span class="details">Expiration Date</span>
             <input type="text" placeholder="mm/dd/yyyy"></input>
-
           </div>
           <div class="button">
             <input type="submit" value="Buy Now" onClick={handleSubmit}></input>
@@ -148,10 +154,7 @@ const BuyMovieForm = (movieId) => {
         </div>
       </form>
     </div>
-    
   );
 };
 
 export default BuyMovieForm;
-
-
