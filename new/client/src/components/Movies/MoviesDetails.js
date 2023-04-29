@@ -40,19 +40,28 @@ const MovieDetails = () => {
 
   return (
     <div className="movie-details">
-      <main>
-        <h1>{movieDetails.title}</h1>
-        <br></br>
-        <button onClick={() => setButtonPopup(true)}>BuyTickets</button>
-      </main>
-      <img src={getImage(movieTitle)} />
       <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
         <BuyMovieForm/>
         </Popup>
+        <button onClick={() => setButtonPopup(true)}>BuyTickets</button>
+      <div className='movie-details-container'>
+      <img className='movie-details-photo' src={getImage(movieTitle)} />
+      <main>
+        <div className='movie-details-info'>
+        <h1 className='movie-detail-title'>{movieDetails.title}</h1>
+        <h1>{movieDetails.summary}</h1>
+        </div>
+        <br></br>
+        
+      </main>
+      
+      </div>
+      
                 <Comments
         commentsUrl="http://localhost:3004/comments"
         currentUserId="1"
       />
+      
     </div>
   );
 }

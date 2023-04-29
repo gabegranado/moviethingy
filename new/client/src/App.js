@@ -23,7 +23,8 @@ import { useDispatch, useSelector } from "react-redux";
 import SignOutButton from "./components/SignOut/SignOutButton";
 import { getMovie } from "./actions/movie";
 import Cookies from 'js-cookie';
-import NavLoginOrSignUp from './NavLoginOrSignUp'
+import NavLoginOrSignUp from './NavLoginOrSignUp';
+import Searchbar from './components/SearchBar/Search';
 
 function App() {
   const user = Cookies.get('_auth_state');
@@ -68,7 +69,7 @@ function App() {
           <ul className={active}>
             <li className="search">
               <a href="#" className="nav__link">
-                {/* {<Searchbar />} */}
+                {<Searchbar />}
               </a>
             </li>
             {/* <li className="nav__item">

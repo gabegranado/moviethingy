@@ -22,7 +22,8 @@ const Movie = ({ movie, setCurrentId }) => {
     <div>
       <div className="movie">
         <div>
-          <p>2007</p>
+          <p>movie time</p>
+          <p>movie date</p>
         </div>
         <img
           src={
@@ -35,7 +36,7 @@ const Movie = ({ movie, setCurrentId }) => {
         ></img>
         <div>
           <span>Movie</span>
-          <h3>"A cool Movie"</h3>
+          <h3>{movie.movieTitle}</h3>
         </div>
       </div>
     </div>
