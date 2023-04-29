@@ -32,5 +32,5 @@ export const getAccountMovieImage = (movieTitle) => {
         return options[i][1]
       };
     }
-  return ;
+  return undefined;
 }

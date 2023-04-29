@@ -23,6 +23,7 @@ import { useDispatch, useSelector } from "react-redux";
 import SignOutButton from "./components/SignOut/SignOutButton";
 import { getMovie } from "./actions/movie";
 import Cookies from 'js-cookie';
+import NavLoginOrSignUp from './NavLoginOrSignUp'
 
 function App() {
   const user = Cookies.get('_auth_state');
@@ -80,16 +81,7 @@ function App() {
                 Catelog
               </a>
             </li>
-            <li className="nav__item">
-              <a href="/Login" className="nav__link">
-                Login
-              </a>
-            </li>
-            <li className="nav__item">
-              <a href="/Signup" className="nav__link">
-                Signup
-              </a>
-            </li>
+            <NavLoginOrSignUp/>
             <li className="nav__item">
               <a href="/Admin" className="nav__link">
                 Admin

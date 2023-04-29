@@ -28,7 +28,9 @@ const BuyMovieForm = (movieId) => {
   const username = Cookies.get("_auth_state");
 
   useEffect(() => {
+    if(username) {
     dispatch(getPosts(JSON.parse(username).identifier));
+    }
 }, [dispatch]);
 
   const user = useSelector((state) => state.posts);
@@ -49,7 +51,7 @@ const BuyMovieForm = (movieId) => {
       }
     }
     
-    if (uId){
+    if (uId && username) {
     dispatch(buyTicket(params.movieId, uId));
     dispatch(getTickets(uId));
     navigate(`/UserAccount/${u}`);
