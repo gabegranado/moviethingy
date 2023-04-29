@@ -1,5 +1,5 @@
 button {
-    --c:  navy; /* the color*/
+    --c: rgba(249, 211, 180, 1); /* the color*/
   
     box-shadow: 0 0 0 .1em inset var(--c); 
     --_g: linear-gradient(var(--c) 0 0) no-repeat;
@@ -11,6 +11,7 @@ button {
     background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
     outline-offset: .1em;
     transition: background-size .4s, background-position 0s .4s;
+    
   }
   button:hover {
     --_p: 100%;
@@ -20,13 +21,107 @@ button {
     box-shadow: 0 0 9e9q inset #0009; 
     background-color: var(--c);
     color: #fff;
+
   }
   
   button {
     font-family: system-ui, sans-serif;
-    font-size: 1.0rem;
+    font-size: 2.0rem;
     cursor: pointer;
-    padding: .1em .6em;
+    padding: .2em .6em;
     font-weight: bold;
     border: none;
+    color: white;
+    
   }
+
+/* 
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #ececec;
+} */
+
+.main-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: -200px;
+}
+
+.comment-flexbox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.comment-text {
+  margin: 12px 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: white;
+}
+
+.input-box {
+  height: 75px;
+  width: 465px;
+  background-color: #ffffff;
+}
+
+.comment-button {
+  height: 40px;
+  width: 80px;
+  background-color: #1b0fff;
+  color: white;
+  font-size: 1.05rem;
+  margin-top: 10px;
+  border-radius: 5px;
+  border-style: none;
+  cursor: pointer;
+}
+
+.comment-container {
+  height: 75px;
+  width: 465px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  margin: 10px 0;
+  word-break: break-all;
+  position: bottom;
+}
+
+.comment{
+color:white;
+
+
+}
+
+.comments-title{
+  color:white;
+  position: relative;
+}
+
+.comment-form-title{
+  color:white;
+}
+
+.movie-detail-title{
+  color:white;
+}
+
+p{
+  color:white;
+  position: center;
+}
+
+.movie-details-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+
