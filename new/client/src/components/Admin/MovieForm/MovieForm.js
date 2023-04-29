@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import useStyles from "./styles";
 import { TextField, Button, Typography, Paper } from "@material-ui/core";
 // import FileBase from 'react-file-base64';
-import { useDispatch } from "react-redux";
-import { addMovie } from "../../../actions/movie";
-import { getMovies } from "../../../actions/movies.js";
-import { Checkbox } from "react-input-checkbox";
-import Select from "react-select";
+import { useDispatch } from 'react-redux';
+import { addMovie } from '../../../actions/movie';
+import { getMovies } from '../../../actions/movies.js';
+import { Checkbox } from 'react-input-checkbox';
+import Select from 'react-select'
+import movieDetails from '../../../images/movieDetail.json'
 
 const MovieForm = () => {
   // const [movieData, setmovieData] = useState({creator: '', title: '', message: '', tags: '', selectedFile: ''})
@@ -45,44 +46,46 @@ const MovieForm = () => {
     });
     setSelctorValue("Choose Movie");
   };
+  
+    function handleChange(e) {
+      setSelctorValue(e)
+      setmovieData({ ...movieData, movieTitle: e.value })
+    }
+    
+    function handleLocationChange(e) {
+      setLocationSelectorValue(e)
+      setmovieData({ ...movieData, movieTheater: e.value })
+    }
+    const movieOptions = [
+      // { value: 'parasite', label: 'Parasite' },
+      // { value: 'girlWithTheDragonTattoo', label: 'Girl With The Dragon Tattoo'},
+      // { value: 'uncutgems', label: 'Uncut Gems'},
+    ]
 
-  const state = {
-    selectedOption: "",
-  };
+    // for (var key in Object.keys(movieDetails)) {
+    //   console.log("keys in admin page ", key)
+    // }
+    console.log(Object.keys(movieDetails))
+    const keys = Object.keys(movieDetails)
+    for (var i in keys) {
+      movieOptions.push({value: keys[i], label: movieDetails[keys[i]].title})
+    }
 
-  function handleChange(e) {
-    setSelctorValue(e);
-    setmovieData({ ...movieData, movieTitle: e.value });
-  }
-
-  function handleLocationChange(e) {
-    setLocationSelectorValue(e);
-    setmovieData({ ...movieData, movieTheater: e.value });
-  }
-  const movieOptions = [
-    { value: "parasite", label: "Parasite" },
-    { value: "girlWithTheDragonTattoo", label: "Girl With The Dragon Tattoo" },
-    { value: "uncutgems", label: "Uncut Gems" },
-  ];
-  const locationOptions = [
-    { value: "lubbock", label: "Lubbock" },
-    { value: "amarillo", label: "Amarillo" },
-    { value: "levelland", label: "Levelland" },
-    { value: "plainview", label: "Plainview" },
-    { value: "snyder", label: "Snyder" },
-    { value: "abilene", label: "Abilene" },
-  ];
-  return (
-    <Paper className={classes.paper}>
-      <form
-        autoComplete="off"
-        noValidate
-        className={`${classes.root} ${classes.form}`}
-        onSubmit={handleSubmit}
-      >
-        <Typography variant="h6">Add Movie</Typography>
-        <Select
-          options={movieOptions}
+    console.log(movieOptions)
+    const locationOptions = [
+      { value: 'lubbock', label: 'Lubbock' },
+      { value: 'amarillo', label: 'Amarillo'},
+      { value: 'levelland', label: 'Levelland'},
+      { value: 'plainview', label: 'Plainview'},
+      { value: 'snyder', label: 'Snyder'},
+      { value: 'abilene', label: 'Abilene'},
+    ]
+    return (
+        <Paper className={classes.paper}>
+        <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
+          <Typography variant="h6">Add Movie</Typography>
+          <Select 
+          options={movieOptions} 
           placeholder={selctorValue}
           value={selctorValue}
           onChange={handleChange}

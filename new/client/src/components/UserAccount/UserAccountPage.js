@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getTickets } from "../../actions/movieTicket";
 import { getPosts } from "../../actions/posts";
 import axios from "axios";
-import Movie from "../../components/Movies/Movie/Movie";
+import { getAccountMovieImage } from "../../images/getAccountMovieImage";
+import QrCode from '../../images/QrCode.png';
 
 const UserAccountPage = () => {
   const params = useParams();
@@ -21,6 +22,7 @@ const UserAccountPage = () => {
   }
 
   useEffect(() => {
+    console.log("in UserAccount: ", username);
     dispatch(getPosts(username));
   }, [dispatch]);
 
@@ -50,6 +52,7 @@ const UserAccountPage = () => {
   movieTicket = useSelector((state) => state.movieTickets);
 
   function getUsername() {
+    console.log("movie tickets: ", movieTicket)
     const parsed = JSON.parse(JSON.stringify(user));
     console.log("here")
 
@@ -61,15 +64,34 @@ const UserAccountPage = () => {
     return ""
   }
 
-  console.log("movie: ", movieTicket)
-    // movie = await axios.get(`http://localhost:3000/getById/${movieTicket.movieId}'`)
+  function getQrCode() {
+    if (!(getAccountMovieImage() == undefined)) {
+      console.log(JSON.parse(JSON.stringify(movieTicket))[0].movieTitle)
+      return (
+        <div>
+          <h1>You're all set to see {JSON.parse(JSON.stringify(movieTicket))[0].movieTitle}. scan this at the Theater!</h1>
+        <img src={QrCode} width='200' height='200'/>
+        </div>
+      );
+  }
+}
 
   return (
     <div>
       <h1>Hello {getUsername()}</h1>
-      <h2>movie: {JSON.stringify(movieTicket)}</h2>
+      
       {/* <Movie movie={movieTicket}/> */}
+      <img
+          src={
+            getAccountMovieImage() !== "N/A"
+              ? getAccountMovieImage()
+              : "https://via.placeholder.com/400"
+          }
+          alt={movieTicket.movieTitle}
+        ></img>
+        {getQrCode()}
     </div>
+    
   );
 };
 

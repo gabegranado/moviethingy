@@ -9,6 +9,7 @@ import axios, { AxiosError } from "axios";
 import { getPosts } from "../../actions/posts";
 import { createUser } from "../../actions/posts";
 import "./SignUpForm.css";
+import { useSignIn } from "react-auth-kit";
 
 const SignUpForm = () => {
   // const [userData, setuserData] = useState({creator: '', title: '', message: '', tags: '', selectedFile: ''})
@@ -21,7 +22,7 @@ const SignUpForm = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  // const user = useSelector((state) => state.posts);
+  const signIn = useSignIn();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,6 +31,12 @@ const SignUpForm = () => {
         .post("http://localhost:3000/user", userData)
         .then((data) => {
           if (data.status === 201) {
+            signIn({
+              token: data.data.token,
+              expiresIn: 3600,
+              tokenType: "Bearer",
+              authState: { identifier: data.data.username },
+            });
             dispatch(getPosts(data.data.username));
             browserHistory.push("UserAccount");
             navigate(`/UserAccount/${data.data.username}`);

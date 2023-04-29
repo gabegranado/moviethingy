@@ -1,5 +1,3 @@
-import { Grid, CircularProgress } from '@material-ui/core';
-import useStyles from './style';
 import Comments from '../comments/Comments'
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -20,7 +18,6 @@ const MovieDetails = () => {
   //`http://localhost:3000/movie/findMovieById/${params.movieId}`
   const [buttonPopup, setButtonPopup] = useState(false);
   var movieTitle = '';
-  var movieSummary = '';
 
   useEffect(() => {
     console.log("movieDetails: ", params.movieId);
@@ -44,7 +41,7 @@ const MovieDetails = () => {
   return (
     <div className="movie-details">
       <main>
-        <h1> test {movieDetails.title}</h1>
+        <h1>{movieDetails.title}</h1>
         <br></br>
         <button onClick={() => setButtonPopup(true)}>BuyTickets</button>
       </main>
@@ -52,7 +49,7 @@ const MovieDetails = () => {
       <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
         <BuyMovieForm/>
         </Popup>
-        <Comments
+                <Comments
         commentsUrl="http://localhost:3004/comments"
         currentUserId="1"
       />

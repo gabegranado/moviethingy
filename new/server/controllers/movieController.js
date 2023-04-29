@@ -54,15 +54,15 @@ export const getMovies = async (req, res) => {
 };
 
 export const findMovieById = async (req, res) => {
-  try {
-    const movie = await Movie.findOne({ _id: req.params.movieId });
-    console.log("found movie", movie);
-    res.status(200).json(movie);
-  } catch (error) {
-    console.log("error searchMovies");
-    res.status(409).json({ message: error.message });
-  }
-};
+    try {
+        const movie = await Movie.findOne({ _id: req.params.movieId});
+        console.log("found movie", movie);
+        res.status(200).json(movie);
+    } catch (error) {
+        console.log("error findMovieById")
+        res.status(409).json({ message: error.message });
+    }
+}
 
 export const searchMovie = async (req, res) => {
   try {

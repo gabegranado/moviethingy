@@ -14,6 +14,7 @@ import { browserHistory } from "react-router";
 import { useParams } from "react-router-dom";
 import { getPosts } from "../../actions/posts";
 import { buyTicket } from "../../actions/buyTicket";
+import { getTickets } from "../../actions/movieTicket";
 import Cookies from "js-cookie";
 import axios from "axios";
 import "./BuyMovieForm.css";
@@ -32,21 +33,38 @@ const BuyMovieForm = (movieId) => {
   const navigate = useNavigate();
   const params = useParams();
   const username = Cookies.get("_auth_state");
+
+  useEffect(() => {
+    if(username) {
+    dispatch(getPosts(JSON.parse(username).identifier));
+    }
+}, [dispatch]);
+
   const user = useSelector((state) => state.posts);
 
+  // console.log("username in buymovieform: ", JSON.parse(user));
   const handleSubmit = (e) => {
     e.preventDefault();
     const parsed = JSON.parse(JSON.stringify(user));
     var uId = "";
-
+    var u = ""
     for (var key in parsed[0]) {
       console.log("key", key, "parsed", parsed[0][key]);
       if (key === "_id") {
         uId = parsed[0][key];
       }
+      if (key === "username") {
+        u = parsed[0][key]
+      }
     }
-
+    
+    if (uId && username) {
     dispatch(buyTicket(params.movieId, uId));
+    dispatch(getTickets(uId));
+    navigate(`/UserAccount/${u}`);
+  } else {
+      alert('Error: you must be signed in to buy tickets');
+    }
     clear();
   };
 

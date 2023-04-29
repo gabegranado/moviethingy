@@ -1,19 +1,41 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Routes,
+  useNavigate,
+} from "react-router-dom";
 // import SnackbarProvider from 'react-simple-snackbar'
 import { useState } from "react";
 import "../src/App.css";
-import Home from './components/Home/Home';
-import Test from './test'
-import SignUpPage from './components/SignUp/SignUpPage'
-import AdminPage from './components/Admin/AdminPage';
-import LoginPage from './components/Login/LoginPage';
-import UserAccountPage from './components/UserAccount/UserAccountPage';
-import MoviesDetails from './components/Movies/MoviesDetails';
-import BrowseMoviesPageNowPlaying from './components/BrowseMovies/BrowseMoviesPageNowPlaying';
-import BrowseMoviesPageUpcoming from './components/BrowseMovies/BrowseMoviesPageUpcoming';
+import Home from "./components/Home/Home";
+import Test from "./test";
+import SignUpPage from "./components/SignUp/SignUpPage";
+import AdminPage from "./components/Admin/AdminPage";
+import LoginPage from "./components/Login/LoginPage";
+import UserAccountPage from "./components/UserAccount/UserAccountPage";
+import MoviesDetails from "./components/Movies/MoviesDetails";
+import BrowseMoviesPageNowPlaying from "./components/BrowseMovies/BrowseMoviesPageNowPlaying";
+import BrowseMoviesPageUpcoming from "./components/BrowseMovies/BrowseMoviesPageUpcoming";
+import { useSignOut } from "react-auth-kit";
+import { useDispatch, useSelector } from "react-redux";
+import SignOutButton from "./components/SignOut/SignOutButton";
+import { getMovie } from "./actions/movie";
+import Cookies from 'js-cookie';
+import NavLoginOrSignUp from './NavLoginOrSignUp'
 
 function App() {
+  const user = Cookies.get('_auth_state');
+  var username = ""
+
+  if (user) {
+  for (var key in JSON.parse(user)) {
+    if (key == 'identifier') {
+      username = JSON.parse(user)[key]
+    }
+  }
+}
   // const cookies = new Cookies();
 
   // const username = cookies.get('_auth_state').identifier
@@ -31,34 +53,10 @@ function App() {
       setIcon("nav__toggler toggle");
     } else setIcon("nav__toggler");
   };
+
   return (
     <Router>
       <div>
-        {/* <nav>
-        <ul>
-          <li>
-            <Link to="/Home">Home</Link>
-          </li>
-          <li>
-            <Link to="/Test">Test</Link>
-          </li>
-          <li>
-            <Link to="/SignUp">SignUp Page</Link>
-          </li>
-          <li>
-          <Link to="/Login">Login Page</Link>
-          </li>
-          <li>
-          <Link to="/UserAccount">Account</Link>
-          </li>
-          <li>
-            <Link to="/Admin">Admin Page</Link>
-          </li>
-          <li>
-            <Link to="/Catelog">Catelog</Link>
-          </li>
-        </ul>
-      </nav> */}
         <nav className="nav">
           <a href="/Home" className="nav__brand">
             {/* Casmiro's Cinema's */}
@@ -80,23 +78,22 @@ function App() {
             </li> */}
             <li className="nav__item">
               <a href="/Catelog" className="nav__link">
-              Catelog
+                Catelog
               </a>
             </li>
-            <li className="nav__item">
-              <a href="/Login" className="nav__link">
-                Login
-              </a>
-            </li>
-            <li className="nav__item">
-              <a href="/Signup" className="nav__link">
-                Signup
-              </a>
-            </li>
+            <NavLoginOrSignUp/>
             <li className="nav__item">
               <a href="/Admin" className="nav__link">
                 Admin
               </a>
+            </li>
+            <li className="nav__item">
+              <a href={`/UserAccount/${username}`} className="nav__link">
+                Account
+              </a>
+            </li>
+            <li>
+              <SignOutButton />
             </li>
           </ul>
           <div onClick={navToggle} className={icon}>
@@ -106,22 +103,25 @@ function App() {
           </div>
         </nav>
 
-      {/* 👇️ Wrap your Route components in a Routes component */}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Home" element={<Home />} />
-        <Route path="/test" element={<Test />} />
-        <Route path="/SignUp" element={<SignUpPage />} />
-        <Route path="/Login" element={<LoginPage />} />
-        <Route path="/UserAccount" element={<UserAccountPage />}/>
-        <Route path="/UserAccount/:userName" element={<UserAccountPage />}/>
-        <Route path="/Admin" element={<AdminPage />} />
-        <Route path="movieDetails/:movieId" element={<MoviesDetails />}/>
-        <Route path="/Catelog" element={<BrowseMoviesPageNowPlaying />} />
-        <Route path="/CatelogUpcoming" element={<BrowseMoviesPageUpcoming />} />
-      </Routes>
-    </div>
-  </Router>
+        {/* 👇️ Wrap your Route components in a Routes component */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Home" element={<Home />} />
+          <Route path="/test" element={<Test />} />
+          <Route path="/SignUp" element={<SignUpPage />} />
+          <Route path="/Login" element={<LoginPage />} />
+          <Route path="/UserAccount" element={<UserAccountPage />} />
+          <Route path="/UserAccount/:userName" element={<UserAccountPage />} />
+          <Route path="/Admin" element={<AdminPage />} />
+          <Route path="movieDetails/:movieId" element={<MoviesDetails />} />
+          <Route path="/Catelog" element={<BrowseMoviesPageNowPlaying />} />
+          <Route
+            path="/CatelogUpcoming"
+            element={<BrowseMoviesPageUpcoming />}
+          />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
