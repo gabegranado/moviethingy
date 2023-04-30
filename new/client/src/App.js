@@ -96,7 +96,7 @@ function App() {
                 Account
               </a>
             </li>
-            <li>
+            <li className="nav__item">
               <SignOutButton />
             </li>
           </ul>

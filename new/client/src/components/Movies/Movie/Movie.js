@@ -25,7 +25,7 @@ const Movie = ({ movie, setCurrentId }) => {
           <p>{movie.movieTime}</p>
           <p>{movie.movieDate}</p>
         </div>
-        <img
+        <img className="movie-sizing"
           src={
             getImage(movie.movieTitle) !== "N/A"
               ? getImage(movie.movieTitle)

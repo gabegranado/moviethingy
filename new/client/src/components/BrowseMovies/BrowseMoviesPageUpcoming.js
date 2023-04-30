@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Movie from '../Movies/Movie/Movie';
-import { Grid, CircularProgress, Button } from '@material-ui/core';
+import { Grid, Button } from '@material-ui/core';
 import { useSelector, useDispatch } from 'react-redux';
 import { getMovies } from '../../actions/movies.js';
 import { useNavigate } from "react-router-dom";

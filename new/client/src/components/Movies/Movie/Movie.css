@@ -41,55 +41,6 @@ h1 {
   width: fit-content;
 }
 
-/* .search {
-  width: 71%;
-  margin: 4rem 0 2rem;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 1.5rem 1.75rem;
-  border-radius: 3rem;
-  background: #1f2123;
-  -webkit-box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
-  box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
-} */
-
-/* .search input {
-  flex: 1;
-  border: none;
-  font-size: 1.5rem;
-  font-family: var(--font-raleway);
-  font-weight: 500;
-  padding-right: 1rem;
-
-  outline: none;
-  color: #a1a1a1;
-  background: #1f2123;
-} */
-
-.search img {
-  width: 35px;
-  height: 35px;
-  cursor: pointer;
-}
-
-/* .search button {
-  padding: 20px 40px;
-  border-radius: 0.5rem;
-  margin-left: 15px;
-  color: #a1a1a1;
-  font-family: var(--font-raleway);
-  font-weight: 900;
-  letter-spacing: 0.75px;
-  font-size: 1.25rem;
-  cursor: pointer;
-  background: #1f2123;
-  -webkit-box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
-  box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
-} */
-
 .empty {
   width: 100%;
   margin-top: 3rem;
@@ -117,7 +68,7 @@ h1 {
 
 .movie {
   width: 182px;
-  height: 350px;
+  height: 420px;
   margin: 1.5rem;
 
   position: relative;
@@ -147,10 +98,15 @@ h1 {
   width: 100%;
   height: 100%;
 }
-
+.movie-sizing{
+  height: 350px;
+  width: 182px;
+}
 .movie div:nth-of-type(2) img {
   height: 100%;
   width: 100%;
+  /* height: 40px; */
+  /* width: 40px; */
 }
 
 .movie div:nth-of-type(3) {
@@ -167,14 +123,16 @@ h1 {
 .movie div:nth-of-type(2) span {
   font-family: "Raleway", sans-serif;
   text-transform: uppercase;
-  font-size: 13px;
+  font-size: 3px;
   letter-spacing: 2px;
   font-weight: 500;
   color: #f0f0f0;
 }
 
 .movie div:nth-of-type(2) h3 {
-  margin-top: 5px;
+  margin-top: 1px;
+  text-transform: uppercase;
+  font-size: 20px;
   font-family: "Roboto Slab", serif;
   color: #f9d3b4;
 }
@@ -192,7 +150,7 @@ h1 {
   opacity: 1;
 }
 
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
   .app {
     padding: 4rem 2rem;
   }
@@ -229,4 +187,4 @@ h1 {
     width: "100%";
     margin: 1rem;
   }
-}
+} */

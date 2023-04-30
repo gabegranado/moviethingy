@@ -23,7 +23,10 @@ button {
     color: #fff;
 
   }
-  
+  .signout-button{
+    color: white;
+    font-weight: normal;
+  }
   button {
     font-family: system-ui, sans-serif;
     font-size: 2.0rem;
@@ -31,7 +34,7 @@ button {
     padding: .2em .6em;
     font-weight: bold;
     border: none;
-    color: white;
+    color: rgba(249, 211, 180, 1);
     
   }
 
@@ -65,11 +68,11 @@ button {
   color: white;
 }
 
-.input-box {
+/* .input-box {
   height: 75px;
   width: 465px;
   background-color: #ffffff;
-}
+} */
 
 .comment-button {
   height: 40px;

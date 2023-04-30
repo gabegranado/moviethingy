@@ -25,7 +25,7 @@ const signOutButton = () => {
 
   if(Cookies.get("_auth_state")) {
       return (
-  <button onClick={handleSignOut}>Sign Out</button>
+  <button className="signout-button" onClick={handleSignOut}>Sign Out</button>
   );
   }
   return;

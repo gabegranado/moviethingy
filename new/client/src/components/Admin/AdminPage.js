@@ -21,10 +21,6 @@ const AdminPage = () => {
 
     return (
         <Container maxidth="lg">
-            <AppBar className={ classes.appBar }position="static" color="inherit">
-                <Typography className={classes.heading}variant="h2" align="center">Admin Page</Typography>
-                <img className={classes.image}src={moviePoster} alt="epicMoviePoster" height="60"/>
-            </AppBar>
             <Grow in>
                 <Container>
                     <Grid container justify="space-between" alignItems="stretch" spacing={3}>
