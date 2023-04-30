@@ -1,23 +1,22 @@
 {
-    "barbie": {
-        "title": "Barbie",
-        "summary": "The adventures of Barbie and Ken."
-    },
-    "spidermanacrosthespiderverse": {
-        "title": "SPIDER-MAN: ACROSS THE SPIDER-VERSE",
-        "summary": "Miles Morales returns for the next chapter of the Oscar®-winning Spider-Verse saga, an epic adventure that will transport Brooklyn's full-time, friendly neighborhood Spider-Man across the Multiverse to join forces with Gwen Stacy and a new team of Spider-People to face off with a villain more powerful than anything they have ever encountered."
-    },
-    "oppenheimer": {
-        "title": "Oppenheimer",
-        "summary": "Written and directed by Christopher Nolan, Oppenheimer is an IMAX®-shot epic thriller that thrusts audiences into the pulse-pounding paradox of the enigmatic man who must risk destroying the world in order to save it."
-    },
-    "johnwick": {
-        "title": "John Wick",
-        "summary": "John Wick (Keanu Reeves) uncovers a path to defeating The High Table. But before he can earn his freedom, Wick must face off against a new enemy with powerful alliances across the globe and forces that turn old friends into foes. Lionsgate presents, a Thunder Road Films / 87eleven production."
-    },
-    "mariomovie": {
-        "title": "Mario Movie",
-        "summary": "While working underground to fix a water main, Brooklyn plumbers Mario (Chris Pratt) and brother Luigi (Charlie Day) are transported down a mysterious pipe and wander into a magical new world. But when the brothers are separated, Mario embarks on an epic quest to find Luigi. With the assistance of Mushroom Kingdom resident Toad (Keegan-Michael Key) and some training from the strong-willed ruler of the Mushroom Kingdom, Princess Peach (Anya Taylor-Joy), Mario taps into his own power."
-    }
-
+  "barbie": {
+    "title": "Barbie",
+    "summary": "Barbie plays a secret agent who must save the world with her high-tech gadgets and team of agents, while facing dangerous enemies and uncovering a traitor in her midst."
+  },
+  "spidermanacrosthespiderverse": {
+    "title": "SPIDER-MAN: ACROSS THE SPIDER-VERSE",
+    "summary": "Miles Morales returns for the next chapter of the Oscar®-winning Spider-Verse saga, an epic adventure that will transport Brooklyn's full-time, friendly neighborhood Spider-Man across the Multiverse to join forces with Gwen Stacy and a new team of Spider-People to face off with a villain more powerful than anything they have ever encountered."
+  },
+  "oppenheimer": {
+    "title": "Oppenheimer",
+    "summary": "Written and directed by Christopher Nolan, Oppenheimer is an IMAX®-shot epic thriller that thrusts audiences into the pulse-pounding paradox of the enigmatic man who must risk destroying the world in order to save it."
+  },
+  "johnwick": {
+    "title": "John Wick",
+    "summary": "John Wick (Keanu Reeves) uncovers a path to defeating The High Table. But before he can earn his freedom, Wick must face off against a new enemy with powerful alliances across the globe and forces that turn old friends into foes. Lionsgate presents, a Thunder Road Films / 87eleven production."
+  },
+  "mariomovie": {
+    "title": "Mario Movie",
+    "summary": "While working underground to fix a water main, Brooklyn plumbers Mario (Chris Pratt) and brother Luigi (Charlie Day) are transported down a mysterious pipe and wander into a magical new world. But when the brothers are separated, Mario embarks on an epic quest to find Luigi. With the assistance of Mushroom Kingdom resident Toad (Keegan-Michael Key) and some training from the strong-willed ruler of the Mushroom Kingdom, Princess Peach (Anya Taylor-Joy), Mario taps into his own power."
+  }
 }

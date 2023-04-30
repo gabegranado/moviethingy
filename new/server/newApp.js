@@ -7,6 +7,7 @@ import userRoutes from './routes/userApi.js';
 import testRoutes from './routes/testApi.js';
 import movieRoutes from './routes/movieApi.js';
 import movieTicketRoutes from './routes/movieTicketApi.js';
+import adminRoutes from './routes/adminApi.js';
 import passport from './auth/passport.js';
 
 const app = express();
@@ -23,6 +24,7 @@ app.use('/user', userRoutes);
 app.use('/test', testRoutes);
 app.use('/movie', movieRoutes);
 app.use('/movieTicket', movieTicketRoutes);
+app.use('/admin', adminRoutes);
 
 const CONNECTION_URL = sprintf("mongodb+srv://casgrana:%s@cluster0.jlyjhgq.mongodb.net/?retryWrites=true&w=majority", dbPsw);
 const PORT = process.env.PORT|| 3000;
