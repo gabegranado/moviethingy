@@ -8,6 +8,7 @@ import useStyles from "./style";
 
 const Movies = ({ setCurrentId }) => {
   const movies = useSelector((state) => state.movies);
+  console.log("MOVIES HERERER", movies)
   // const classes = useStyles();
 
   console.log("hmmm" + movies);

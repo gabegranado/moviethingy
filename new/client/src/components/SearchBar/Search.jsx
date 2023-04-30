@@ -1,12 +1,16 @@
 import React from "react";
 import { useState } from "react";
 import "./Search.css";
+import { useNavigate } from "react-router-dom";
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const navigate = useNavigate();
   const Input = (e) => {
     if (e.key === "Enter") {
-      console.log("enter Pressed");
+      var str = searchTerm.replace(/\s/g, '');
+      console.log("enter Pressed", searchTerm);
+      navigate(`/search/${str.toLowerCase()}`);
     }
   };
   return (

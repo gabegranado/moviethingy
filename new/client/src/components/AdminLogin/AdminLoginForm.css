@@ -1,0 +1,96 @@
+.signinform {
+    /* max-width: 700px; */
+    width: 100%;
+    /* background: #fff; */
+    /* position: absolute; */
+    margin-top: 20px;
+    padding: 25px 30px;
+    border-radius: 5px;
+  
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .signinform .Title {
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+  
+  .signinform .Title::before {
+    content: "";
+    position: absolute;
+    /* left: 0; */
+    bottom: 0;
+    height: 3px;
+    width: 80px;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  }
+  
+  .signinform form .signininfo {
+    /* display: flex; */
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+  }
+  
+  form .signininfo .input-box {
+    margin-bottom: 15px;
+    margin: 20px 0 12px 0;
+    display: flex;
+    align-items: center;
+    /* width: calc(100% / 2 - 20px); */
+  }
+  .signininfo img {
+    /* padding-left: 5px; */
+    border: none;
+    width: 35px;
+    cursor: pointer;
+  }
+  
+  .signininfo .input-box .details {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+  .signininfo .input-box input {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+  }
+  
+  .signininfo .input-box input:focus,
+  .signininfo .input-box input:valid {
+    border-color: #9b59b6;
+  }
+  
+  form .button {
+    height: 45px;
+    margin: 45px 0px;
+    text-align: center;
+  }
+  
+  form .button input {
+    height: 100%;
+    width: 40%;
+    outline: none;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    cursor: pointer;
+  }
+  form .button input:hover {
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+  }
+  

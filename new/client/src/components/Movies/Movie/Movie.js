@@ -22,8 +22,8 @@ const Movie = ({ movie, setCurrentId }) => {
     <div>
       <div className="movie">
         <div>
-          <p>movie time</p>
-          <p>movie date</p>
+          <p>{movie.movieTime}</p>
+          <p>{movie.movieDate}</p>
         </div>
         <img
           src={

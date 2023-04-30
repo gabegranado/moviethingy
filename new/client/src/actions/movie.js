@@ -19,11 +19,3 @@ export const addMovie = (movie) => async (dispatch) => {
     }
 }
 
-export const getSearch = (search) => async (dispatch) => {
-  try {
-    const { data } = api.getSearch(search)
-    dispatch({ type: 'FETCH_SEARCH_MOVIES', payload: data })
-} catch (error) {
-    console.log(error);
-}
-}

@@ -18,6 +18,8 @@ import UserAccountPage from "./components/UserAccount/UserAccountPage";
 import MoviesDetails from "./components/Movies/MoviesDetails";
 import BrowseMoviesPageNowPlaying from "./components/BrowseMovies/BrowseMoviesPageNowPlaying";
 import BrowseMoviesPageUpcoming from "./components/BrowseMovies/BrowseMoviesPageUpcoming";
+import AdminLoginPage from "./components/AdminLogin/AdminLoginPage";
+import SearchPage from "./components/SearchPage/SearchPage";
 import { useSignOut } from "react-auth-kit";
 import { useDispatch, useSelector } from "react-redux";
 import SignOutButton from "./components/SignOut/SignOutButton";
@@ -25,6 +27,7 @@ import { getMovie } from "./actions/movie";
 import Cookies from 'js-cookie';
 import NavLoginOrSignUp from './NavLoginOrSignUp';
 import Searchbar from './components/SearchBar/Search';
+import  { RequireAuth } from 'react-auth-kit';
 
 function App() {
   const user = Cookies.get('_auth_state');
@@ -113,13 +116,18 @@ function App() {
           <Route path="/Login" element={<LoginPage />} />
           <Route path="/UserAccount" element={<UserAccountPage />} />
           <Route path="/UserAccount/:userName" element={<UserAccountPage />} />
-          <Route path="/Admin" element={<AdminPage />} />
+          <Route path="/Admin" element={ <RequireAuth loginPath="/AdminLogin">
+          <AdminPage />
+          </RequireAuth>
+          } />
+          <Route path="/AdminLogin" element={<AdminLoginPage />} />
           <Route path="movieDetails/:movieId" element={<MoviesDetails />} />
           <Route path="/Catelog" element={<BrowseMoviesPageNowPlaying />} />
           <Route
             path="/CatelogUpcoming"
             element={<BrowseMoviesPageUpcoming />}
           />
+          <Route path="/Search/:movieTitle" element={<SearchPage />} />
         </Routes>
       </div>
     </Router>

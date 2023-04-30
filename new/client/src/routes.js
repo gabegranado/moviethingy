@@ -11,7 +11,8 @@ import UserAccountPage from './components/UserAccount/UserAccountPage'
 import MoviesDetails from './components/Movies/MoviesDetails';
 import BrowseMoviesPageNowPlaying from './components/BrowseMovies/BrowseMoviesPageNowPlaying';
 import BrowseMoviesPageUpcoming from './components/BrowseMovies/BrowseMoviesPageUpcoming';
-
+import AdminLoginPage from './components/AdminLogin/AdminLoginPage';
+import SearchPage from './components/SearchPage/SearchPage';
 // import requireAuth from './utils/requireAuth';
 
 export default (
@@ -20,11 +21,13 @@ export default (
     <Route path='test' component={test}/>
     <Route path="signUp" component={SignUpPage} />
     <Route path="admin" component={AdminPage}/>
+    <Route path="adminLogin" component={AdminLoginPage} />
     <Route path="userAccount" component={UserAccountPage}/>
     <Route path="userAccount/:userName" component={UserAccountPage}/>
     <Route path="movieDetails/:movieId" component={MoviesDetails}/>
     <Route path="login" component={LoginPage} />
     <Route path="catelog" component={BrowseMoviesPageNowPlaying} />
     <Route path="catelogUpcoming" component={BrowseMoviesPageUpcoming} />
+    <Route path="search/:movieTitle" component={SearchPage} />
   </Route>
 )
