@@ -27,6 +27,10 @@ export default makeStyles({
     left: '20px',
     color: 'white',
   },
+  button: {
+    color: 'white',
+    background: 'white',
+  },
   overlay2: {
     position: 'absolute',
     top: '20px',

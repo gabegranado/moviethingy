@@ -41,7 +41,7 @@ const BrowseMoviesNowPlaying = ({ setCurrentId }) => {
     return (
         <div>
             <h1>Upcoming</h1>
-            <Button onClick={switchPage}>Now Playing</Button>
+            <button className='nowplaying-button' onClick={switchPage}>Now Playing</button>
           <Grid className={classes.container} container alignItems="stretch" spacing={3}>
             {shownMovies.map((movie) => (
               <Grid key={movie._id} item xs={12} sm={6} md={6}>

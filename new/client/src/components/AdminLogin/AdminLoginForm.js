@@ -55,7 +55,7 @@ const AdminLoginForm = () => {
 
   return (
     <div className="signinform">
-      <div className="Title">Login</div>
+      <div className="Title">Admin Login</div>
       <form
         // action="#"
         autoComplete="off"
