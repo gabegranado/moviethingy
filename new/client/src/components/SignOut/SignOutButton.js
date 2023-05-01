@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 import { logOutUser } from "../../actions/posts";
 import { clearTickets } from "../../actions/movieTicket";
 import { useCookies } from "react-cookie";
@@ -10,6 +10,7 @@ const signOutButton = () => {
   const [cookies, setCookie, removeCookie] = useCookies(["cookie-name"]);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const user = useSelector((state) => state.posts);
 
   const handleSignOut = () => {
     // setCookie('test', 'test', [])
